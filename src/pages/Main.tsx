@@ -1,5 +1,5 @@
-import ChatBox from "../components/ChatBox";
-import VisualBox from "../components/VisualBox";
+import ChatBox from "../components/chatBox/ChatBox";
+import VisualBox from "../components/visualBox/VisualBox";
 import "./Main.scss";
 
 const Main = () => {

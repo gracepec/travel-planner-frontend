@@ -1,4 +1,5 @@
-import "./AirTicketContainer.scss";
+import "./OptionContainer.scss";
+import OptionCard from "./OptionCard";
 
 interface FlightOption {
     airline: string;
@@ -6,7 +7,7 @@ interface FlightOption {
     times: string[];
 }
 
-const AirTicketContainer: React.FC = () => {
+const AirTicketContainer = () => {
     const flightOptions: FlightOption[] = [
         {
             airline: "에어서울",
@@ -26,21 +27,16 @@ const AirTicketContainer: React.FC = () => {
     ];
 
     return (
-        <div className="air-ticket">
-            <h2>Air Ticket</h2>
+        <div className="option-container">
+            <header>Air Ticket</header>
             <div className="options">
                 {flightOptions.map((flight, index) => (
-                    <div key={index} className="option">
-                        <h3>{flight.airline}</h3>
-                        <p className="price">
-                            {flight.price.toLocaleString()} 원
-                        </p>
-                        <ul>
-                            {flight.times.map((time, idx) => (
-                                <li key={idx}>{time}</li>
-                            ))}
-                        </ul>
-                    </div>
+                    <OptionCard
+                        key={index}
+                        title={flight.airline}
+                        price={flight.price}
+                        times={flight.times}
+                    />
                 ))}
             </div>
         </div>
