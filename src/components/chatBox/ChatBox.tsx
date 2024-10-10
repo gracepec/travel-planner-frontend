@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./ChatBox.scss";
+import Message from "./MessageContainer";
+import InputContainer from "./InputContainer";
 
 const ChatBox = () => {
     const [messages, setMessages] = useState([
@@ -29,29 +31,13 @@ const ChatBox = () => {
     };
 
     return (
-        <div className="chat-window">
-            <div className="messages">
-                {messages.map((msg, index) => (
-                    <div
-                        key={index}
-                        className={`message ${
-                            msg.from === "User" ? "user" : "bot"
-                        }`}
-                    >
-                        <strong>{msg.from}</strong>
-                        <p>{msg.text}</p>
-                    </div>
-                ))}
-            </div>
-            <div className="input-container">
-                <input
-                    type="text"
-                    value={input}
-                    onChange={e => setInput(e.target.value)}
-                    placeholder="메시지를 입력하세요..."
-                />
-                <button onClick={sendMessage}>Send</button>
-            </div>
+        <div className="chat-container">
+            <Message messages={messages} />
+            <InputContainer
+                input={input}
+                setInput={setInput}
+                sendMessage={sendMessage}
+            />
         </div>
     );
 };

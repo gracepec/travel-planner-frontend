@@ -1,39 +1,9 @@
-.chat-window {
+.chat-container {
     height: 100%;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    .messages {
-        overflow-y: auto;
-
-        .message {
-            padding: 1rem;
-            margin: 1rem;
-            border-radius: 6px;
-            background-color: white;
-
-            &.user {
-                background-color: white;
-                text-align: right;
-            }
-
-            &.bot {
-                background-color: #eaeaea;
-                text-align: left;
-            }
-
-            strong {
-                display: block;
-                font-weight: bold;
-            }
-
-            p {
-                margin: 0;
-            }
-        }
-    }
 
     .input-container {
         display: flex;
