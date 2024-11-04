@@ -7,17 +7,15 @@ const Home = () => {
     const [flightData, setFlightData] = useState<FlightType[]>([]);
 
     const getFlightData = async () => {
-        const flight_type = "popular";
-        const dpt_apt = "ICN";
-        const arv_apt = "HND";
-        const start_date = "2024-10-15";
-        const end_date = "2024-10-20";
+        const origin = "ICN";
+        const destination = "HND";
+        const start_date = "20241015";
+        const end_date = "20241020";
 
         try {
             const result = await fetchFlightData({
-                flight_type: flight_type,
-                dpt_apt: dpt_apt,
-                arv_apt: arv_apt,
+                origin: origin,
+                destination: destination,
                 start_date: start_date,
                 end_date: end_date,
             });
