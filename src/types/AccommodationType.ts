@@ -1,4 +1,4 @@
-export interface FlightType {
+export interface AccommodationType {
     photo: string;
     name: string;
     location: string;
