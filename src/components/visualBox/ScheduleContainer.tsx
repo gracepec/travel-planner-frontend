@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import { requestResState } from "../../recoils/atoms";
-import "./OptionContainer.scss";
+import "./airTicket/AirTicketContainer.scss";
 import LoadingCard from "./LoadingCard";
 import ScheduleCard from "./ScheduleCard";
 import fetchChatGPTPlan from "../../apis/fetchChatGPTPlan";
@@ -38,7 +38,7 @@ const ScheduleContainer = () => {
     }, [chatGPTPlan]);
 
     return (
-        <div className="option-container">
+        <div className="air-ticket-container">
             <header>Travel Plan</header>
             {isLoading ? (
                 <div className="options">

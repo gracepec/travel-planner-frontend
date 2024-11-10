@@ -1,4 +1,4 @@
-import "./OptionCard.scss";
+import "./airTicket/AirTicketCard.scss";
 import LoadingCircle from "../ui/LoadingCircle";
 
 interface ScheduleCardProps {
@@ -17,7 +17,7 @@ const ScheduleCard = ({
     isTransport,
 }: ScheduleCardProps) => {
     return (
-        <div className={`card ${isTransport ? "mini-card" : "card"}`}>
+        <div className="card-fli">
             <img
                 className="image"
                 src="https://placehold.co/600x400"

@@ -1,4 +1,4 @@
-import "./OptionCard.scss";
+import "./airTicket/AirTicketCard";
 import LoadingCircle from "../ui/LoadingCircle";
 
 interface LoadingCardProps {
@@ -8,7 +8,7 @@ interface LoadingCardProps {
 
 const LoadingCard = ({ title, detail }: LoadingCardProps) => {
     return (
-        <div className="card">
+        <div className="card-fli">
             <div className="image">
                 <LoadingCircle />
             </div>

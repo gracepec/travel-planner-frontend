@@ -1,13 +1,22 @@
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { requestResState } from "../../recoils/atoms";
-import "./OptionContainer.scss";
-import LoadingCard from "./LoadingCard";
-import OptionCard from "./OptionCard";
-import fetchAccommodationData from "../../apis/fetchAccommodationData";
-import { AccommodationType } from "../../types/AccommodationType";
+import { requestResState } from "../../../recoils/atoms";
+import "./AccommodationContainer.scss";
+import LoadingCard from "../LoadingCard";
+import AccommodationCard from "./AccommodationCard";
+import fetchAccommodationData from "../../../apis/fetchAccommodationData";
+import { AccommodationType } from "../../../types/AccommodationType";
+import accommodation from "../../../data/accommodation.json";
 
-const AccommodationContainer = () => {
+interface AccommodationContainerProps {
+    isModal: boolean;
+    onClick: () => void;
+}
+
+const AccommodationContainer = ({
+    isModal,
+    onClick,
+}: AccommodationContainerProps) => {
     const [accommodationData, setAccommodationData] = useState<
         AccommodationType[]
     >([]);
@@ -41,22 +50,24 @@ const AccommodationContainer = () => {
         }
     }, [requestRes]);
 
+    useEffect(() => {
+        setIsLoading(false);
+        setAccommodationData(accommodation.accommodation);
+    }, []);
+
     return (
-        <div className="option-container">
+        <div className="accommodation-container">
             <header>Accommodation</header>
             <div className="options">
                 {isLoading ? (
                     <LoadingCard title={"숙소 재단중..."} detail={""} />
                 ) : (
                     accommodationData.map((accommodation, index) => (
-                        <OptionCard
+                        <AccommodationCard
                             key={index}
-                            title={accommodation.name}
-                            price={accommodation.price}
-                            url={accommodation.url}
-                            photo={accommodation.photo}
-                            times={[]}
-                            rate={"평점: " + accommodation.rate}
+                            data={accommodation}
+                            isModal={isModal}
+                            onClick={onClick}
                         />
                     ))
                 )}
