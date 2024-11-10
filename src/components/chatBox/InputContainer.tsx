@@ -1,4 +1,4 @@
-import React from "react";
+import "./InputContainer.scss";
 
 interface InputContainerProps {
     input: string;

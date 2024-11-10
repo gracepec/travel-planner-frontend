@@ -1,0 +1,68 @@
+.ticket-return {
+    height: 10rem;
+    width: 20rem;
+    background: white;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.ticket-return .top {
+    height: 2rem;
+    width: 20rem;
+    border-radius: 1rem 1rem 0rem 0rem;
+    font-size: 1rem;
+    align-items: start;
+    background: #ff9944;
+}
+
+.ticket-return .top .title {
+    height: 2rem;
+    width: 20rem;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-align: center;
+    transition: font-size 0.5s ease;
+}
+
+.ticket-return .course {
+    height: 2rem;
+    font-size: 2rem;
+    margin: 1rem 0rem 1rem 1rem;
+    font-weight: bold;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.ticket-return .detail {
+    height: 1rem;
+    font-size: 1rem;
+    margin: 0rem 0rem 1rem 1rem;
+    font-weight: bold;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.ticket-return .image {
+    height: 3rem;
+    width: 3rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ticket-return .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

@@ -12,4 +12,5 @@ export interface FlightType {
     rtn_arv_apt: string;
     rtn_time: string;
     price: string;
+    url: string;
 }
