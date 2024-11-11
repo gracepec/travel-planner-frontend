@@ -13,7 +13,7 @@ const AirTicketModal = ({ data, open, close }: ModalProps) => {
     if (!open || !data) return null;
 
     return (
-        <div className="modal">
+        <div className="modal-air">
             <AirTicketDetailCard data={data}></AirTicketDetailCard>
             <button className="button" onClick={close}>
                 <ImCross />

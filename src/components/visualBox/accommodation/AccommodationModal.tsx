@@ -13,7 +13,7 @@ const AccommodationModal = ({ data, open, close }: ModalProps) => {
     if (!open || !data) return null;
 
     return (
-        <div className="modal">
+        <div className="modal-acc">
             <AccommodationDetailCard data={data}></AccommodationDetailCard>
             <button className="button" onClick={close}>
                 <ImCross />
