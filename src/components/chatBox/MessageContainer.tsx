@@ -13,9 +13,7 @@ const MessageContainer = ({ messages }: MessageContainerProps) => {
             {messages.map((msg, index) => (
                 <div
                     key={index}
-                    className={`message ${
-                        msg.from === "User" ? "user" : "bot"
-                    }`}
+                    className={`message ${msg.from === "You" ? "user" : "bot"}`}
                 >
                     <strong>{msg.from}</strong>
                     <p>{msg.text}</p>

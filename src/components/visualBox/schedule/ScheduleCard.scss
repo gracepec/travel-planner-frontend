@@ -1,0 +1,108 @@
+.card-sch {
+    height: 8rem;
+    width: 14rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    // animation: card-immerge 0.5s ease forwards;
+    transition: width 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+.card-sch:hover {
+    transform: translateY(-10px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.card-sch .title {
+    height: 2rem;
+    font-size: 1.5rem;
+    font-family: "NotoSansKR-ExtraBold";
+    text-align: center;
+    transition: font-size 0.5s ease;
+}
+.card-sch .subtitle {
+    height: 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    transition: font-size 0.5s ease;
+}
+.card-sch .detail {
+    height: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+.card-sch .image {
+    height: 3rem;
+    width: 3rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-sch .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-sch-small {
+    height: 8rem;
+    width: 11rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: width 0.2s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+.card-sch-small:hover {
+    transform: translateY(-10px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.card-sch-small .title {
+    height: 2rem;
+    font-size: 1.3rem;
+    font-family: "NotoSansKR-ExtraBold";
+    text-align: center;
+    transition: font-size 0.2s ease;
+}
+.card-sch-small .subtitle {
+    height: 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    transition: font-size 0.2s ease;
+}
+.card-sch-small .detail {
+    height: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+.card-sch-small .image {
+    height: 3rem;
+    width: 3rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-sch-small .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

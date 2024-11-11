@@ -1,0 +1,68 @@
+.detail-fli {
+    padding: 0rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0.5rem;
+}
+
+.detail-fli .cover-image {
+    width: 25rem;
+    height: 12rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+}
+.detail-fli .cover-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detail-fli .placeholder {
+    width: 25rem;
+    height: 12rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+}
+
+.detail-fli .title-container {
+    height: 3rem;
+    width: 24rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.detail-fli .title {
+    height: 3rem;
+    width: 21rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.detail-fli .image {
+    height: 3rem;
+    width: 3rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.detail-fli .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
