@@ -35,7 +35,7 @@ const ChatBox = () => {
 
     const sendMessage = () => {
         if (input.trim()) {
-            setMessages([...messages, { from: "User", text: input }]);
+            setMessages([...messages, { from: "You", text: input }]);
             postRequest("1", input);
             setInput("");
         }

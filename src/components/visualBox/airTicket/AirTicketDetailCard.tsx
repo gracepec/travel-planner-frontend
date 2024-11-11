@@ -4,13 +4,14 @@ import { useRecoilValue } from "recoil";
 import { selectedIndexState } from "../../../recoils/atoms";
 import AirTicketDeparture from "./AirTicketDeparture";
 import AirTicketReturn from "./AirTicketReturn";
+import PriceCard from "../../ui/PriceCard";
+import ButtonCard from "../../ui/ButtonCard";
 import plane_1 from "../../../img/plane_1.jpg";
 import plane_2 from "../../../img/plane_2.jpg";
 import plane_3 from "../../../img/plane_3.jpg";
 import plane_4 from "../../../img/plane_4.jpg";
 import plane_5 from "../../../img/plane_5.jpg";
 import "./AirTicketDetailCard.scss";
-import PriceCard from "../../ui/PriceCard";
 
 interface AirTicketDetailCardProps {
     data: FlightType;
@@ -47,12 +48,12 @@ const AirTicketDetailCard = ({ data }: AirTicketDetailCardProps) => {
 
             <AirTicketReturn data={data}></AirTicketReturn>
 
-            <PriceCard data={data.price}></PriceCard>
+            <PriceCard
+                price={"₩" + data.price}
+                title={"AirLine Ticket Price"}
+            ></PriceCard>
 
-            <button onClick={() => window.open(data.url, "_blank")}>
-                이동하기
-            </button>
-            <button>확정하기</button>
+            <ButtonCard data={data.url} content={"티켓 구매하기"}></ButtonCard>
         </div>
     );
 };

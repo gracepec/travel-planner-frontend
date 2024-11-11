@@ -1,5 +1,5 @@
 .card-acc {
-    height: 15rem;
+    height: 14rem;
     width: 10rem;
     padding: 0rem 1rem 1rem 1rem;
     background: white;
@@ -9,6 +9,7 @@
     align-items: center;
 
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    // animation: card-immerge 0.5s ease forwards;
     transition: width 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
     gap: 0.5rem;
     cursor: pointer;
@@ -21,13 +22,13 @@
 .card-acc .title {
     height: 3rem;
     font-size: 1.5rem;
-    font-weight: bolder;
+    font-family: "NotoSansKR-ExtraBold";
     text-align: center;
     transition: font-size 0.5s ease;
 }
 .card-acc .subtitle {
     width: 9rem;
-    height: 4rem;
+    height: 5rem;
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
@@ -51,14 +52,14 @@
     text-align: center;
 }
 .card-acc .image {
-    height: 12rem;
+    height: 11rem;
     width: 12rem;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border-radius: 0.5rem 0.5rem 0rem 0rem;
+    border-radius: 1rem 1rem 0rem 0rem;
     transition: width 0.5s ease;
 }
 .card-acc .image img {
@@ -68,8 +69,8 @@
 }
 
 .card-acc-small {
-    height: 15rem;
-    width: 8rem;
+    height: 14rem;
+    width: 7.5rem;
     padding: 0rem 1rem 1rem 1rem;
     background: white;
     border-radius: 1rem;
@@ -90,13 +91,13 @@
 .card-acc-small .title {
     height: 3rem;
     font-size: 1.3rem;
-    font-weight: bolder;
+    font-family: "NotoSansKR-ExtraBold";
     text-align: center;
     transition: font-size 0.2s ease;
 }
 .card-acc-small .subtitle {
-    width: 9rem;
-    height: 4rem;
+    width: 8rem;
+    height: 6rem;
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
@@ -121,13 +122,13 @@
 }
 .card-acc-small .image {
     height: 12rem;
-    width: 10rem;
+    width: 9.5rem;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border-radius: 0.5rem 0.5rem 0rem 0rem;
+    border-radius: 1rem 1rem 0rem 0rem;
 
     transition: width 0.2s ease;
 }
@@ -135,27 +136,4 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-@keyframes bounce-up {
-    0% {
-        transform: translateY(100px); /* 위로 100px에서 시작 */
-        opacity: 0;
-    }
-    50% {
-        transform: translateY(-20px); /* 아래로 20px 이동 */
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(0); /* 원래 위치 */
-    }
-}
-
-@keyframes slide-open {
-    0% {
-        width: 9rem;
-    }
-    100% {
-        width: 18rem;
-    }
 }

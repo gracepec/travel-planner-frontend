@@ -1,0 +1,108 @@
+.card-dir {
+    height: 4rem;
+    width: 4rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    // animation: card-immerge 0.5s ease forwards;
+    transition: width 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+.card-dir:hover {
+    transform: translateY(-10px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.card-dir .title {
+    height: 2rem;
+    font-size: 1.5rem;
+    font-family: "NotoSansKR-ExtraBold";
+    text-align: center;
+    transition: font-size 0.5s ease;
+}
+.card-dir .subtitle {
+    height: 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    transition: font-size 0.5s ease;
+}
+.card-dir .detail {
+    height: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+.card-dir .image {
+    height: 3rem;
+    width: 3rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-dir .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-dir-small {
+    height: 4rem;
+    width: 2.25rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: width 0.2s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+.card-dir-small:hover {
+    transform: translateY(-10px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.card-dir-small .title {
+    height: 2rem;
+    font-size: 1.3rem;
+    font-family: "NotoSansKR-ExtraBold";
+    text-align: center;
+    transition: font-size 0.2s ease;
+}
+.card-dir-small .subtitle {
+    height: 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    transition: font-size 0.2s ease;
+}
+.card-dir-small .detail {
+    height: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+.card-dir-small .image {
+    height: 3rem;
+    width: 3rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-dir-small .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

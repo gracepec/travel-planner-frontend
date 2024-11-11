@@ -12,13 +12,13 @@ const AirTicketReturn = ({ data }: AirTicketReturnProps) => {
                 <div className="title">AirLine Ticket Arrival</div>
             </div>
             <div className="course">
-                <div>{data.dpt_dpt_apt + " - " + data.dpt_arv_apt}</div>
+                <div>{data.rtn_dpt_apt + " - " + data.rtn_arv_apt}</div>
             </div>
             <div className="detail">
-                <div>{data.dpt_dpt_time + " - " + data.dpt_arv_time}</div>
+                <div>{data.rtn_dpt_time + " - " + data.rtn_arv_time}</div>
             </div>
             <div className="detail">
-                <div>{data.dpt_time}</div>
+                <div>{data.rtn_time}</div>
             </div>
         </div>
     );

@@ -1,9 +1,9 @@
 .modal {
     position: absolute;
-    bottom: 2%;
+    top: 6.5rem;
     right: 2rem;
-    height: 87%;
-    width: 20%;
+    height: 52rem;
+    width: 25rem;
     display: flex;
     flex-direction: column;
 
@@ -24,7 +24,6 @@
     border: 0;
     background-color: transparent;
 }
-
 .modal .button:hover {
 }
 

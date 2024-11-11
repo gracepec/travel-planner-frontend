@@ -4,10 +4,11 @@ import {
     requestResState,
     selectedAirTicketState,
     selectedAccommodationState,
+    selectedScheduleState,
 } from "../../recoils/atoms";
 import "./VisualBox.scss";
 import AirTicketContainer from "./airTicket/AirTicketContainer";
-import ScheduleContainer from "./ScheduleContainer";
+import ScheduleContainer from "./schedule/ScheduleContainer";
 import AccommodationContainer from "./accommodation/AccommodationContainer";
 import AirTicketModal from "./airTicket/AirTicketModal";
 import AccommodationModal from "./accommodation/AccommodationModal";
@@ -20,10 +21,12 @@ const VisualBox = () => {
 
     const selectedAirTicket = useRecoilValue(selectedAirTicketState);
     const selectedAccommodation = useRecoilValue(selectedAccommodationState);
+    const selectedSchedule = useRecoilValue(selectedScheduleState);
     const resetSelectedAirTicket = useResetRecoilState(selectedAirTicketState);
     const resetSelectedAccommodation = useResetRecoilState(
         selectedAccommodationState
     );
+    const resetSelectedSchedule = useResetRecoilState(selectedScheduleState);
 
     useEffect(() => {
         if (requestRes?.answerCode === 1) {
@@ -66,8 +69,11 @@ const VisualBox = () => {
                             isModal={modalOpen}
                             onClick={openModal}
                         />
-                        <ScheduleContainer />
                         <AccommodationContainer
+                            isModal={modalOpen}
+                            onClick={openModal}
+                        />
+                        <ScheduleContainer
                             isModal={modalOpen}
                             onClick={openModal}
                         />
@@ -81,6 +87,14 @@ const VisualBox = () => {
                         />
                     )}
                     {optionType === 2 && (
+                        <AccommodationModal
+                            key={`modal-acc-${Date.now()}`}
+                            data={selectedAccommodation}
+                            open={modalOpen}
+                            close={closeModal}
+                        />
+                    )}
+                    {optionType === 3 && (
                         <AccommodationModal
                             key={`modal-acc-${Date.now()}`}
                             data={selectedAccommodation}

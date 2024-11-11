@@ -1,17 +1,18 @@
 import "./PriceCard.scss";
 
 interface PriceCardProps {
-    data: string;
+    price: string;
+    title: string;
 }
 
-const PriceCard = ({ data }: PriceCardProps) => {
+const PriceCard = ({ price, title }: PriceCardProps) => {
     return (
         <div className="card-price">
             <div className="top">
-                <div className="title">AirLine Ticket Price</div>
+                <div className="title">{title}</div>
             </div>
-            <div className="detail">
-                <div>₩{data}</div>
+            <div className="details">
+                <div>{price}</div>
             </div>
         </div>
     );

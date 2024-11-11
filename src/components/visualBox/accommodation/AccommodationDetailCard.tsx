@@ -1,5 +1,9 @@
 import { AccommodationType } from "../../../types/AccommodationType";
+import ButtonCard from "../../ui/ButtonCard";
+import PriceCard from "../../ui/PriceCard";
+import AccommodationAddress from "./AccommodationAddress";
 import "./AccommodationDetailCard.scss";
+import AccommodationRate from "./AccommodationRate";
 
 interface AirTicketDetailCardProps {
     data: AccommodationType;
@@ -11,14 +15,18 @@ const AccommodationDetailCard = ({ data }: AirTicketDetailCardProps) => {
             <div className="image">
                 <img src={data.photo} alt={""} />
             </div>
-            <div className="subtitle">{data.name}</div>
-            <div className="detail">{data.location}</div>
-            <div className="title">{data.price}</div>
-            <div className="detail">{data.rate}점</div>
-            <button onClick={() => window.open(data.url, "_blank")}>
-                이동하기
-            </button>
-            <button>확정하기</button>
+            <div className="title">{data.name}</div>
+
+            <AccommodationAddress data={data}></AccommodationAddress>
+
+            <AccommodationRate data={data}></AccommodationRate>
+
+            <PriceCard
+                price={data.price}
+                title={"Accommodation Price"}
+            ></PriceCard>
+
+            <ButtonCard data={data.url} content={"숙소 예매하기"}></ButtonCard>
         </div>
     );
 };

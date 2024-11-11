@@ -14,10 +14,10 @@ const AirTicketModal = ({ data, open, close }: ModalProps) => {
 
     return (
         <div className="modal">
+            <AirTicketDetailCard data={data}></AirTicketDetailCard>
             <button className="button" onClick={close}>
                 <ImCross />
             </button>
-            <AirTicketDetailCard data={data}></AirTicketDetailCard>
         </div>
     );
 };

@@ -8,18 +8,12 @@
 }
 
 .detail-acc .title {
-    height: 2rem;
-    font-size: 1.5rem;
+    height: 5rem;
+    width: 24rem;
+    font-size: 1.2rem;
     font-weight: bolder;
     text-align: center;
     align-content: center;
-    transition: font-size 0.5s ease;
-}
-.detail-acc .subtitle {
-    width: 24rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
     transition: font-size 0.5s ease;
 }
 .detail-acc .detail {
@@ -31,6 +25,7 @@
 }
 .detail-acc .image {
     width: 25rem;
+    height: 21rem;
     position: relative;
     display: flex;
     justify-content: center;
