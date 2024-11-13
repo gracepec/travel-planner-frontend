@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilValue, useResetRecoilState } from "recoil";
 import {
     requestResState,
@@ -12,6 +12,7 @@ import ScheduleContainer from "./schedule/ScheduleContainer";
 import AccommodationContainer from "./accommodation/AccommodationContainer";
 import AirTicketModal from "./airTicket/AirTicketModal";
 import AccommodationModal from "./accommodation/AccommodationModal";
+import ScheduleModal from "./schedule/ScheduleModal";
 
 const VisualBox = () => {
     const [isTailing, setIsTailing] = useState<boolean>(false);
@@ -39,14 +40,24 @@ const VisualBox = () => {
         if (selectedAirTicket === null) return;
         setOptionType(1);
         resetSelectedAccommodation();
-    }, [selectedAirTicket, resetSelectedAccommodation]);
+        resetSelectedSchedule();
+    }, [selectedAirTicket, resetSelectedAccommodation, resetSelectedSchedule]);
 
     useEffect(() => {
         console.log("accommodation has changed: ", selectedAccommodation);
         if (selectedAccommodation === null) return;
         setOptionType(2);
         resetSelectedAirTicket();
-    }, [selectedAccommodation, resetSelectedAirTicket]);
+        resetSelectedSchedule();
+    }, [selectedAccommodation, resetSelectedAirTicket, resetSelectedSchedule]);
+
+    useEffect(() => {
+        console.log("schedule has changed: ", selectedSchedule);
+        if (selectedSchedule === null) return;
+        setOptionType(3);
+        resetSelectedAirTicket();
+        resetSelectedAccommodation();
+    }, [selectedSchedule, resetSelectedAirTicket, resetSelectedAccommodation]);
 
     useEffect(() => {
         setIsTailing(true);
@@ -66,10 +77,17 @@ const VisualBox = () => {
                     <header>Travel to TOKYO</header>
                     <div className="visual-content">
                         <AirTicketContainer
+                            origin={"인천"}
+                            destination={requestRes?.responseCity ?? ""}
+                            start_date={requestRes?.responseStartDt ?? ""}
+                            end_date={requestRes?.responseEndDt ?? ""}
                             isModal={modalOpen}
                             onClick={openModal}
                         />
                         <AccommodationContainer
+                            location={requestRes?.responseCity ?? ""}
+                            start_date={requestRes?.responseStartDt ?? ""}
+                            end_date={requestRes?.responseEndDt ?? ""}
                             isModal={modalOpen}
                             onClick={openModal}
                         />
@@ -95,9 +113,9 @@ const VisualBox = () => {
                         />
                     )}
                     {optionType === 3 && (
-                        <AccommodationModal
+                        <ScheduleModal
                             key={`modal-acc-${Date.now()}`}
-                            data={selectedAccommodation}
+                            data={selectedSchedule}
                             open={modalOpen}
                             close={closeModal}
                         />

@@ -1,3 +1,4 @@
+import React from "react";
 import "./PriceCard.scss";
 
 interface PriceCardProps {

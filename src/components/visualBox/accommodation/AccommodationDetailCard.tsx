@@ -1,3 +1,4 @@
+import React from "react";
 import { AccommodationType } from "../../../types/AccommodationType";
 import ButtonCard from "../../ui/ButtonCard";
 import PriceCard from "../../ui/PriceCard";

@@ -1,3 +1,4 @@
+import React from "react";
 import { useSetRecoilState } from "recoil";
 import "./ScheduleCard.scss";
 import { selectedScheduleState } from "../../../recoils/atoms";

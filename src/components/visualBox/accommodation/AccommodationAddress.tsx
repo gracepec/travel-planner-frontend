@@ -1,3 +1,4 @@
+import React from "react";
 import { AccommodationType } from "../../../types/AccommodationType";
 import "./AccommodationAddress.scss";
 

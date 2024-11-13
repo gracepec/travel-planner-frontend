@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import { requestResState } from "../../../recoils/atoms";
 import "./AirTicketContainer.scss";
@@ -9,11 +9,22 @@ import { FlightType } from "../../../types/FlightType";
 import flights from "../../../data/flights.json";
 
 interface AirTicketContainerProps {
+    origin: string;
+    destination: string;
+    start_date: string;
+    end_date: string;
     isModal: boolean;
     onClick: () => void;
 }
 
-const AirTicketContainer = ({ isModal, onClick }: AirTicketContainerProps) => {
+const AirTicketContainer = ({
+    origin,
+    destination,
+    start_date,
+    end_date,
+    isModal,
+    onClick,
+}: AirTicketContainerProps) => {
     const [flightData, setFlightData] = useState<FlightType[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -22,17 +33,12 @@ const AirTicketContainer = ({ isModal, onClick }: AirTicketContainerProps) => {
     const getFlightData = async (responseId: number) => {
         setIsLoading(true);
 
-        const origin = "ICN";
-        const destination = "HND";
-        const start_date = "20241115";
-        const end_date = "20241120";
-
         try {
             const result = await fetchFlightData({
                 origin: origin,
                 destination: destination,
-                start_date: start_date,
-                end_date: end_date,
+                start_date: start_date.split("-").join(""),
+                end_date: end_date.split("-").join(""),
             });
             setFlightData(result);
             setIsLoading(false);
@@ -42,7 +48,6 @@ const AirTicketContainer = ({ isModal, onClick }: AirTicketContainerProps) => {
     };
 
     useEffect(() => {
-        console.log("AirTicketContainer: useEffect requestRes");
         if (requestRes?.answerCode === 1) {
             getFlightData(requestRes.requestId);
         }
@@ -50,7 +55,7 @@ const AirTicketContainer = ({ isModal, onClick }: AirTicketContainerProps) => {
 
     useEffect(() => {
         setIsLoading(false);
-        setFlightData(flights.flights);
+        setFlightData(flights);
     }, []);
 
     return (

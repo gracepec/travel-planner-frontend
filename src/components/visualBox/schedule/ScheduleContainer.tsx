@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import { requestResState } from "../../../recoils/atoms";
 import LoadingCard from "../LoadingCard";
@@ -41,10 +41,6 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
             getChatGPTPlan(requestRes.requestId);
         }
     }, [requestRes]);
-
-    useEffect(() => {
-        console.log(chatGPTPlan);
-    }, [chatGPTPlan]);
 
     useEffect(() => {
         setIsLoading(false);

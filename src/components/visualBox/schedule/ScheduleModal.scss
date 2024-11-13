@@ -1,4 +1,4 @@
-.modal-air {
+.modal-sch {
     position: absolute;
     top: 6.5rem;
     right: 2rem;
@@ -13,7 +13,7 @@
     animation: slide-enter 0.5s ease forwards;
 }
 
-.modal-air .button {
+.modal-sch .button {
     position: absolute;
     top: 5px;
     left: 3px;
@@ -23,8 +23,7 @@
 
     border: 0;
     background-color: transparent;
-}
-.modal .button:hover {
+    cursor: pointer;
 }
 
 /* 모달이 처음 등장할 때의 애니메이션 */

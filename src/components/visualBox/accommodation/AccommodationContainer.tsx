@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import { requestResState } from "../../../recoils/atoms";
 import "./AccommodationContainer.scss";
@@ -9,11 +9,17 @@ import { AccommodationType } from "../../../types/AccommodationType";
 import accommodation from "../../../data/accommodation.json";
 
 interface AccommodationContainerProps {
+    location: string;
+    start_date: string;
+    end_date: string;
     isModal: boolean;
     onClick: () => void;
 }
 
 const AccommodationContainer = ({
+    location,
+    start_date,
+    end_date,
     isModal,
     onClick,
 }: AccommodationContainerProps) => {
@@ -26,10 +32,6 @@ const AccommodationContainer = ({
 
     const getAccommodationData = async (responseId: number) => {
         setIsLoading(true);
-
-        const location = "도쿄";
-        const start_date = "2024-11-15";
-        const end_date = "2024-11-20";
 
         try {
             const result = await fetchAccommodationData({
@@ -52,7 +54,7 @@ const AccommodationContainer = ({
 
     useEffect(() => {
         setIsLoading(false);
-        setAccommodationData(accommodation.accommodation);
+        setAccommodationData(accommodation);
     }, []);
 
     return (

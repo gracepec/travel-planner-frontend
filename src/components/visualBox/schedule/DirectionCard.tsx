@@ -1,3 +1,4 @@
+import React from "react";
 import "./DirectionCard.scss";
 import LoadingCircle from "../../ui/LoadingCircle";
 

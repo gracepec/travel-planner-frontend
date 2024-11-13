@@ -1,3 +1,4 @@
+import React from "react";
 import AccommodationDetailCard from "./AccommodationDetailCard";
 import { AccommodationType } from "../../../types/AccommodationType";
 import { ImCross } from "react-icons/im";

@@ -1,3 +1,4 @@
+import React from "react";
 import "./ButtonCard.scss";
 
 interface ButtonCardProps {

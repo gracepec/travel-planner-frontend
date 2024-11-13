@@ -1,3 +1,4 @@
+import React from "react";
 import AirTicketDetailCard from "./AirTicketDetailCard";
 import { FlightType } from "../../../types/FlightType";
 import { ImCross } from "react-icons/im";
