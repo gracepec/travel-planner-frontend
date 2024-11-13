@@ -18,12 +18,9 @@ const DirectionCard = ({ d1, d2, isModal, onClick }: DirectionCardProps) => {
             className={isModal ? "card-dir-small" : "card-dir"}
             onClick={handleClick}
         >
-            <img
-                className="image"
-                src="https://placehold.co/600x400"
-                alt=""
-                title="place_image"
-            ></img>
+            <div className="image">
+                <img src="https://placehold.co/600x400" alt="" />
+            </div>
             <div className="subtitle">이동</div>
         </div>
     );

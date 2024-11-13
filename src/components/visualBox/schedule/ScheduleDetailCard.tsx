@@ -2,6 +2,7 @@ import React from "react";
 import { ScheduleType } from "../../../types/ScheduleType";
 import ButtonCard from "../../ui/ButtonCard";
 import PriceCard from "../../ui/PriceCard";
+import ScheduleAddressBox from "./ScheduleAddressBox";
 import ScheduleInfoBox from "./ScheduleInfoBox";
 import "./ScheduleDetailCard.scss";
 import { PlaceDataType } from "../../../types/PlaceDataType";
@@ -16,16 +17,19 @@ const ScheduleDetailCard = ({
     placeData,
 }: ScheduleDetailCardProps) => {
     return (
-        <div className="detail-acc">
+        <div className="detail-sch">
             <div className="image">
-                <img src={placeData.photo[0]} alt={""} />
+                <img src={placeData.photo[0]} alt={"1"} />
+                <img src={placeData.photo[1]} alt={"2"} />
+                <img src={placeData.photo[2]} alt={"3"} />
+                <img src={placeData.photo[3]} alt={"4"} />
             </div>
             <div className="title">{placeData.name}</div>
 
-            <ScheduleInfoBox
+            <ScheduleAddressBox
                 scheduleData={scheduleData}
                 placeData={placeData}
-            ></ScheduleInfoBox>
+            ></ScheduleAddressBox>
 
             <ScheduleInfoBox
                 scheduleData={scheduleData}
@@ -34,12 +38,12 @@ const ScheduleDetailCard = ({
 
             <PriceCard
                 price={placeData.admission_fee}
-                title={"Accommodation Price"}
+                title={"Admission Fee"}
             ></PriceCard>
 
             <ButtonCard
                 data={placeData.web_site}
-                content={"숙소 예매하기"}
+                content={"웹사이트 이동"}
             ></ButtonCard>
         </div>
     );

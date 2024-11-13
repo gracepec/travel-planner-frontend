@@ -19,6 +19,7 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
     const [day, setDay] = useState<number>();
     const [dayPlan, setDayPlan] = useState<ChatGPTPlanType>();
     const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [selectedScheduleIndex, setSelectedScheduleIndex] = useState(0);
 
     const requestRes = useRecoilValue(requestResState);
 
@@ -52,110 +53,165 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
         });
     }, []);
 
+    const handleScheduleChange = (index: number) => {
+        setSelectedScheduleIndex(index);
+    };
+
     return (
         <div className="schedule-container">
             <header>Travel Plan</header>
+
+            {!isLoading && chatGPTPlan && (
+                <div className="schedule-buttons">
+                    {chatGPTPlan.map((schedule, index) => (
+                        <button
+                            key={index}
+                            onClick={() => handleScheduleChange(index)}
+                        >
+                            Day {schedule.day}{" "}
+                        </button>
+                    ))}
+                </div>
+            )}
+
             {isLoading ? (
                 <div className="options">
                     <LoadingCard title={"여행 재단중..."} detail={""} />
                 </div>
             ) : (
-                chatGPTPlan.map((schedule, index) => (
-                    <div>
-                        <header>{schedule.day}</header>
-                        <div className="options">
-                            <ScheduleCard
-                                index={index}
-                                data={{
-                                    city: schedule.city,
-                                    schedule: schedule.travel_destination_1,
-                                    schedule_time:
-                                        schedule.travel_destination_1_time,
-                                    schedule_detail:
-                                        schedule.travel_destination_1_detail,
-                                }}
-                                isModal={isModal}
-                                onClick={onClick}
-                            />
-                            <DirectionCard
-                                d1={schedule.travel_destination_1}
-                                d2={schedule.travel_destination_2}
-                                isModal={isModal}
-                                onClick={onClick}
-                            ></DirectionCard>
-                            <ScheduleCard
-                                index={index}
-                                data={{
-                                    city: schedule.city,
-                                    schedule: schedule.travel_destination_2,
-                                    schedule_time:
-                                        schedule.travel_destination_2_time,
-                                    schedule_detail:
-                                        schedule.travel_destination_2_detail,
-                                }}
-                                isModal={isModal}
-                                onClick={onClick}
-                            />
-                            <DirectionCard
-                                d1={schedule.travel_destination_2}
-                                d2={schedule.travel_destination_3}
-                                isModal={isModal}
-                                onClick={onClick}
-                            ></DirectionCard>
-                            <ScheduleCard
-                                index={index}
-                                data={{
-                                    city: schedule.city,
-                                    schedule: schedule.travel_destination_3,
-                                    schedule_time:
-                                        schedule.travel_destination_3_time,
-                                    schedule_detail:
-                                        schedule.travel_destination_3_detail,
-                                }}
-                                isModal={isModal}
-                                onClick={onClick}
-                            />
-                        </div>
-                        <div className="options">
-                            <ScheduleCard
-                                index={index}
-                                data={{
-                                    city: schedule.city,
-                                    schedule: schedule.restaurant_1,
-                                    schedule_time: schedule.restaurant_1_time,
-                                    schedule_detail:
-                                        schedule.restaurant_1_detail,
-                                }}
-                                isModal={isModal}
-                                onClick={onClick}
-                            />
-                            <ScheduleCard
-                                index={index}
-                                data={{
-                                    city: schedule.city,
-                                    schedule: schedule.restaurant_2,
-                                    schedule_time: schedule.restaurant_2_time,
-                                    schedule_detail:
-                                        schedule.restaurant_2_detail,
-                                }}
-                                isModal={isModal}
-                                onClick={onClick}
-                            />
-                            <ScheduleCard
-                                index={index}
-                                data={{
-                                    city: schedule.city,
-                                    schedule: schedule.restaurant_3,
-                                    schedule_time: schedule.restaurant_3_time,
-                                    schedule_detail:
-                                        schedule.restaurant_3_detail,
-                                }}
-                                isModal={isModal}
-                                onClick={onClick}
-                            />
-                        </div>
+                <div>
+                    <header>{chatGPTPlan[selectedScheduleIndex].day}</header>
+                    <div className="options">
+                        <ScheduleCard
+                            index={selectedScheduleIndex}
+                            data={{
+                                city: chatGPTPlan[selectedScheduleIndex].city,
+                                schedule:
+                                    chatGPTPlan[selectedScheduleIndex]
+                                        .travel_destination_1,
+                                schedule_time:
+                                    chatGPTPlan[selectedScheduleIndex]
+                                        .travel_destination_1_time,
+                                schedule_detail:
+                                    chatGPTPlan[selectedScheduleIndex]
+                                        .travel_destination_1_detail,
+                            }}
+                            isModal={isModal}
+                            isRestaurant={false}
+                            onClick={onClick}
+                        />
+                        <ScheduleCard
+                            index={selectedScheduleIndex}
+                            data={{
+                                city: chatGPTPlan[selectedScheduleIndex].city,
+                                schedule:
+                                    chatGPTPlan[selectedScheduleIndex]
+                                        .restaurant_2,
+                                schedule_time:
+                                    chatGPTPlan[selectedScheduleIndex]
+                                        .restaurant_2_time,
+                                schedule_detail:
+                                    chatGPTPlan[selectedScheduleIndex]
+                                        .restaurant_2_detail,
+                            }}
+                            isModal={isModal}
+                            isRestaurant={true}
+                            onClick={onClick}
+                        />
+                        <ScheduleCard
+                            index={selectedScheduleIndex}
+                            data={{
+                                city: chatGPTPlan[selectedScheduleIndex].city,
+                                schedule:
+                                    chatGPTPlan[selectedScheduleIndex]
+                                        .travel_destination_2,
+                                schedule_time:
+                                    chatGPTPlan[selectedScheduleIndex]
+                                        .travel_destination_2_time,
+                                schedule_detail:
+                                    chatGPTPlan[selectedScheduleIndex]
+                                        .travel_destination_2_detail,
+                            }}
+                            isModal={isModal}
+                            isRestaurant={false}
+                            onClick={onClick}
+                        />
+                        <ScheduleCard
+                            index={selectedScheduleIndex}
+                            data={{
+                                city: chatGPTPlan[selectedScheduleIndex].city,
+                                schedule:
+                                    chatGPTPlan[selectedScheduleIndex]
+                                        .restaurant_3,
+                                schedule_time:
+                                    chatGPTPlan[selectedScheduleIndex]
+                                        .restaurant_3_time,
+                                schedule_detail:
+                                    chatGPTPlan[selectedScheduleIndex]
+                                        .restaurant_3_detail,
+                            }}
+                            isModal={isModal}
+                            isRestaurant={true}
+                            onClick={onClick}
+                        />
+                        <ScheduleCard
+                            index={selectedScheduleIndex}
+                            data={{
+                                city: chatGPTPlan[selectedScheduleIndex].city,
+                                schedule:
+                                    chatGPTPlan[selectedScheduleIndex]
+                                        .travel_destination_3,
+                                schedule_time:
+                                    chatGPTPlan[selectedScheduleIndex]
+                                        .travel_destination_3_time,
+                                schedule_detail:
+                                    chatGPTPlan[selectedScheduleIndex]
+                                        .travel_destination_3_detail,
+                            }}
+                            isModal={isModal}
+                            isRestaurant={false}
+                            onClick={onClick}
+                        />
                     </div>
-                ))
+                    <div className="options-dir">
+                        <DirectionCard
+                            d1={
+                                chatGPTPlan[selectedScheduleIndex]
+                                    .travel_destination_1
+                            }
+                            d2={chatGPTPlan[selectedScheduleIndex].restaurant_2}
+                            isModal={isModal}
+                            onClick={onClick}
+                        />
+                        <DirectionCard
+                            d1={chatGPTPlan[selectedScheduleIndex].restaurant_2}
+                            d2={
+                                chatGPTPlan[selectedScheduleIndex]
+                                    .travel_destination_2
+                            }
+                            isModal={isModal}
+                            onClick={onClick}
+                        />
+                        <DirectionCard
+                            d1={
+                                chatGPTPlan[selectedScheduleIndex]
+                                    .travel_destination_2
+                            }
+                            d2={chatGPTPlan[selectedScheduleIndex].restaurant_3}
+                            isModal={isModal}
+                            onClick={onClick}
+                        />
+                        <DirectionCard
+                            d1={chatGPTPlan[selectedScheduleIndex].restaurant_3}
+                            d2={
+                                chatGPTPlan[selectedScheduleIndex]
+                                    .travel_destination_3
+                            }
+                            isModal={isModal}
+                            onClick={onClick}
+                        />
+                    </div>
+                </div>
             )}
         </div>
     );

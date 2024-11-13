@@ -40,13 +40,13 @@ const ScheduleModal = ({ data, open, close }: ModalProps) => {
         }
     };
 
-    useEffect(() => {
-        getPlaceData(data?.schedule + " " + data?.city);
-    }, [data]);
-
     // useEffect(() => {
-    //     setPlaceData(place_data);
-    // }, []);
+    //     getPlaceData(data?.schedule + " " + data?.city);
+    // }, [data]);
+
+    useEffect(() => {
+        setPlaceData(place_data);
+    }, []);
 
     if (!open || !data) return null;
 

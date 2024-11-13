@@ -1,17 +1,23 @@
 {
-    "name": "브란덴부르크 문(Brandenburger Tor)",
+    "name": "우에노 공원(上野恩賜公園)",
     "photo": [
-        "https://lh5.googleusercontent.com/p/AF1QipNaifG9JhlSPzLGHOn6hFKSlGWaXXhaIrPeCMdU=w203-h135-k-no",
-        "https://lh5.googleusercontent.com/p/AF1QipN3ikDrl2khCNWe5Jys9T5kVQ-dcs_B_aTW0gyo=w203-h114-k-no",
-        "https://lh5.googleusercontent.com/p/AF1QipPNH5MDywUWs7353Nlxpb1vZ0Jq0vtYP0tt-PSN=w203-h114-k-no",
-        "https://lh5.googleusercontent.com/p/AF1QipOGCwfKDiQGCQk6SuSfntGS5ijxc2LqE1yPXGSn=w203-h135-k-no"
+        "https://lh5.googleusercontent.com/p/AF1QipOpFKdmkarclQcBHGWbF8LgagkosZEyPtAkAbch=w203-h152-k-no",
+        "https://lh5.googleusercontent.com/p/AF1QipOvq5pw8ceeJBsMzVdypQhc40_WH1lz_xlh7aC1=w203-h152-k-no",
+        "https://lh5.googleusercontent.com/p/AF1QipNmN7SulcVLNFA3Cevm3zrINwHJOSb_HhY3bxuf=w203-h152-k-no",
+        "https://lh5.googleusercontent.com/p/AF1QipOmFFHXXQq0V5-onhorigkiQeUxHz8Rg5NaDw1C=w203-h152-k-no"
     ],
-    "address": "Pariser Platz, 10117 Berlin, 독일",
+    "address": "Uenokoen, Taito City, Tokyo 110-0007 일본",
     "opening_hours": [
-        "-"
+        "일요일,오전 5:00~오후 11:00",
+        "월요일,오전 5:00~오후 11:00",
+        "화요일,오전 5:00~오후 11:00",
+        "수요일,오전 5:00~오후 11:00",
+        "목요일,오전 5:00~오후 11:00",
+        "금요일,오전 5:00~오후 11:00",
+        "토요일,오전 5:00~오후 11:00"
     ],
     "admission_provider": "-",
     "admission_fee": "-",
     "admission_url": "-",
-    "web_site": "https://www.berlin.de/sehenswuerdigkeiten/3560266-3558930-brandenburger-tor.html"
+    "web_site": "https://www.kensetsu.metro.tokyo.lg.jp/jimusho/toubuk/ueno/index_top.html"
 }

@@ -8,17 +8,15 @@ interface ScheduleInfoBoxProps {
     placeData: PlaceDataType;
 }
 
-const ScheduleAddress = ({ scheduleData, placeData }: ScheduleInfoBoxProps) => {
+const ScheduleInfoBox = ({ scheduleData, placeData }: ScheduleInfoBoxProps) => {
     return (
         <div className="sch-info">
             <div className="top">
-                <div className="title">Accommodation Location</div>
+                <div className="title">Opening Hours</div>
             </div>
-            <div className="details">
-                <div>{placeData.address}</div>
-            </div>
+            <div className="details">오전 5:00~오후 11:00</div>
         </div>
     );
 };
 
-export default ScheduleAddress;
+export default ScheduleInfoBox;

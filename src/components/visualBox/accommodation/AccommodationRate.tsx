@@ -12,7 +12,7 @@ const AccommodationRate = ({ data }: AccommodationRateProps) => {
             <div className="top">
                 <div className="title">Accommodation Rate</div>
             </div>
-            <div className="detail">
+            <div className="details">
                 <div>{data.rate}</div>
             </div>
         </div>
