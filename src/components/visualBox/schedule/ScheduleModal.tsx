@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useRecoilValue, useResetRecoilState } from "recoil";
 import ScheduleDetailCard from "./ScheduleDetailCard";
+import ScheduleDetailModalCard from "./ScheduleDetailModalCard";
 import { ScheduleType } from "../../../types/ScheduleType";
 import { PlaceDataType } from "../../../types/PlaceDataType";
+import { detailPlaceState } from "../../../recoils/atoms";
 import { ImCross } from "react-icons/im";
 import fetchPlaceData from "../../../apis/fetchPlaceData";
 import "./ScheduleModal.scss";
@@ -14,6 +17,11 @@ interface ModalProps {
 }
 
 const ScheduleModal = ({ data, open, close }: ModalProps) => {
+    const detailPlace = useRecoilValue(detailPlaceState);
+    const resetDetailPlace = useResetRecoilState(detailPlaceState);
+
+    const [delayedDetailPlace, setDelayedDetailPlace] = useState(false);
+
     const [placeData, setPlaceData] = useState<PlaceDataType>({
         name: "-",
         photo: [],
@@ -45,18 +53,38 @@ const ScheduleModal = ({ data, open, close }: ModalProps) => {
     // }, [data]);
 
     useEffect(() => {
+        if (detailPlace) {
+            const timer = setTimeout(() => setDelayedDetailPlace(true), 200);
+            return () => clearTimeout(timer); // Cleanup
+        } else {
+            setDelayedDetailPlace(false); // Reset immediately if detailPlace is false
+        }
+    }, [detailPlace]);
+
+    useEffect(() => {
         setPlaceData(place_data);
     }, []);
+
+    const handleClick = () => {
+        resetDetailPlace();
+        close();
+    };
 
     if (!open || !data) return null;
 
     return (
-        <div className="modal-sch">
+        <div className={detailPlace ? "modal-sch-detail" : "modal-sch"}>
             <ScheduleDetailCard
                 scheduleData={data}
                 placeData={placeData}
             ></ScheduleDetailCard>
-            <button className="button" onClick={close}>
+            {delayedDetailPlace && (
+                <ScheduleDetailModalCard
+                    scheduleData={data}
+                    placeData={placeData}
+                />
+            )}
+            <button className="button" onClick={handleClick}>
                 <ImCross />
             </button>
         </div>

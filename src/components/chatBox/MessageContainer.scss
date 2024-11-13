@@ -1,5 +1,6 @@
 .messages {
     height: 100%;
+    padding-bottom: 1rem;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -13,6 +14,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        font-size: 0.9rem;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
         animation: message-bounce 0.4s ease forwards;
     }

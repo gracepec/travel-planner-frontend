@@ -25,6 +25,9 @@
     background-color: transparent;
     cursor: pointer;
 }
+.modal-acc .button:hover {
+    color: red;
+}
 
 /* 모달이 처음 등장할 때의 애니메이션 */
 @keyframes slide-enter {

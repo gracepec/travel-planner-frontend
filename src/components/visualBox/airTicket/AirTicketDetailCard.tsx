@@ -54,7 +54,11 @@ const AirTicketDetailCard = ({ data }: AirTicketDetailCardProps) => {
                 title={"AirLine Ticket Price"}
             ></PriceCard>
 
-            <ButtonCard data={data.url} content={"티켓 구매하기"}></ButtonCard>
+            <ButtonCard
+                data={data.url}
+                content={"티켓 구매하기"}
+                type={0}
+            ></ButtonCard>
         </div>
     );
 };

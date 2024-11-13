@@ -1,6 +1,6 @@
+import React, { useState } from "react";
 import { IoIosSend } from "react-icons/io";
 import "./InputContainer.scss";
-import { useState } from "react";
 
 interface InputContainerProps {
     input: string;
@@ -17,7 +17,6 @@ const InputContainer = ({
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter" && !isComposing) {
-            // IME 입력 중이 아닐 때만 실행
             e.preventDefault();
             sendMessage();
         }

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { requestResState } from "../../../recoils/atoms";
+import { requestResState, airTicketLoadingState } from "../../../recoils/atoms";
 import "./AirTicketContainer.scss";
-import LoadingCard from "../LoadingCard";
+import LoadingCard from "../../ui/LoadingCard";
 import AirTicketCard from "./AirTicketCard";
 import fetchFlightData from "../../../apis/fetchFlightData";
 import { FlightType } from "../../../types/FlightType";
@@ -29,10 +29,10 @@ const AirTicketContainer = ({
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     const requestRes = useRecoilValue(requestResState);
+    const airTicketLoading = useRecoilValue(airTicketLoadingState);
 
     const getFlightData = async (responseId: number) => {
         setIsLoading(true);
-
         try {
             const result = await fetchFlightData({
                 origin: origin,
@@ -54,18 +54,26 @@ const AirTicketContainer = ({
     }, [requestRes]);
 
     useEffect(() => {
-        setIsLoading(false);
+        setIsLoading(!airTicketLoading);
         setFlightData(flights);
-    }, []);
+    }, [airTicketLoading]);
 
     return (
         <div className="air-ticket-container">
             <header>Air Ticket</header>
-            <div className="options">
-                {isLoading ? (
-                    <LoadingCard title={"항공권 재단중..."} detail={""} />
-                ) : (
-                    flightData.map((flight, index) => (
+
+            {isLoading ? (
+                <div className="options">
+                    <LoadingCard type={0} detail={"항공권 재단중..."} />
+                    <LoadingCard type={0} detail={"항공권 재단중..."} />
+                    <LoadingCard type={0} detail={"항공권 재단중..."} />
+                    <LoadingCard type={0} detail={"항공권 재단중..."} />
+                    <LoadingCard type={0} detail={"항공권 재단중..."} />
+                </div>
+            ) : (
+                <div className="options">
+                    {" "}
+                    {flightData.map((flight, index) => (
                         <AirTicketCard
                             key={index}
                             index={index}
@@ -73,9 +81,9 @@ const AirTicketContainer = ({
                             isModal={isModal}
                             onClick={onClick}
                         />
-                    ))
-                )}
-            </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

@@ -1,13 +1,13 @@
 import { ChatGPTResponseType } from "../types/ChatGPTResponseType";
 import instance from "./instance";
 
-interface FetchChatGPTRequestParams {
+interface FetchChatGPTResponseParams {
     requestId: string;
 }
 
-const fetchChatGPTRequest = async ({
+const fetchChatGPTResponse = async ({
     requestId,
-}: FetchChatGPTRequestParams) => {
+}: FetchChatGPTResponseParams) => {
     try {
         const res = await instance.get<ChatGPTResponseType>(
             `/chatgpt/request/${requestId}`
@@ -23,4 +23,4 @@ const fetchChatGPTRequest = async ({
     }
 };
 
-export default fetchChatGPTRequest;
+export default fetchChatGPTResponse;

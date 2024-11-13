@@ -1,27 +1,48 @@
 import React from "react";
+import { useSetRecoilState } from "recoil";
+import { selectedDirectionState } from "../../../recoils/atoms";
+import { FaBusSimple } from "react-icons/fa6";
 import "./DirectionCard.scss";
-import LoadingCircle from "../../ui/LoadingCircle";
 
 interface DirectionCardProps {
+    city: string;
     d1: string;
     d2: string;
     isModal: boolean;
     onClick: () => void;
 }
 
-const DirectionCard = ({ d1, d2, isModal, onClick }: DirectionCardProps) => {
+const DirectionCard = ({
+    city,
+    d1,
+    d2,
+    isModal,
+    onClick,
+}: DirectionCardProps) => {
+    const setSelectedDirection = useSetRecoilState(selectedDirectionState);
+
     const handleClick = () => {
-        onClick();
+        const request =
+            city +
+            " " +
+            d1 +
+            "에서 " +
+            city +
+            " " +
+            d2 +
+            "(으)로 가는 방법을 알려줘.";
+        setSelectedDirection(request);
     };
+
     return (
         <div
             className={isModal ? "card-dir-small" : "card-dir"}
             onClick={handleClick}
         >
-            <div className="image">
-                <img src="https://placehold.co/600x400" alt="" />
+            <div className="image" onClick={handleClick}>
+                <FaBusSimple />
             </div>
-            <div className="subtitle">이동</div>
+            <div className="detail">경로 안내 요청</div>
         </div>
     );
 };

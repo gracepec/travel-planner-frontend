@@ -3,6 +3,7 @@ import { ChatGPTRequestType } from "../types/ChatGPTRequestType";
 import { FlightType } from "../types/FlightType";
 import { AccommodationType } from "../types/AccommodationType";
 import { ScheduleType } from "../types/ScheduleType";
+import { PlaceDataType } from "../types/PlaceDataType";
 
 export const requestResState = atom<ChatGPTRequestType | null>({
     key: "requestRes",
@@ -27,4 +28,44 @@ export const selectedScheduleState = atom<ScheduleType | null>({
 export const selectedIndexState = atom<number>({
     key: "selectedIndex",
     default: 0,
+});
+
+export const selectedDirectionState = atom<string>({
+    key: "selectedDirection",
+    default: "",
+});
+
+export const selectedPlaceState = atom<string>({
+    key: "selectedPlace",
+    default: "",
+});
+
+export const detailPlaceState = atom<boolean>({
+    key: "detailPlace",
+    default: false,
+});
+
+export const initialLoadingState = atom<boolean>({
+    key: "initialLoading",
+    default: false,
+});
+
+export const scheduleLoadingState = atom<boolean>({
+    key: "scheduleLoading",
+    default: false,
+});
+
+export const airTicketLoadingState = atom<boolean>({
+    key: "airTicketLoading",
+    default: false,
+});
+
+export const accommodationLoadingState = atom<boolean>({
+    key: "accommodationLoading",
+    default: false,
+});
+
+export const scheduleChangedState = atom<boolean>({
+    key: "scheduleChanged",
+    default: false,
 });

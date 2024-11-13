@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { requestResState } from "../../../recoils/atoms";
-import LoadingCard from "../LoadingCard";
+import {
+    requestResState,
+    scheduleLoadingState,
+    scheduleChangedState,
+} from "../../../recoils/atoms";
+import LoadingCard from "../../ui/LoadingCard";
 import ScheduleCard from "./ScheduleCard";
+import DirectionCard from "./DirectionCard";
 import fetchChatGPTPlan from "../../../apis/fetchChatGPTPlan";
 import { ChatGPTPlanType } from "../../../types/ChatGPTPlanType";
 import "./ScheduleContainer.scss";
 import schedules from "../../../data/schedule.json";
-import DirectionCard from "./DirectionCard";
+import schedules2 from "../../../data/schedule_2.json";
+import pictures from "../../../data/place_img.json";
+import pictures2 from "../../../data/place_img_2.json";
 
 interface ScheduleContainerProps {
     isModal: boolean;
@@ -16,12 +23,15 @@ interface ScheduleContainerProps {
 
 const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
     const [chatGPTPlan, setChatGPTPlan] = useState<ChatGPTPlanType[]>([]);
-    const [day, setDay] = useState<number>();
-    const [dayPlan, setDayPlan] = useState<ChatGPTPlanType>();
+    const [city, setCity] = useState<string>();
     const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [isLoadingDetail, setIsLoadingDetail] = useState<boolean>(true);
     const [selectedScheduleIndex, setSelectedScheduleIndex] = useState(0);
+    const [picturesSaved, setPicturesSaved] = useState<{ photo: string }[]>();
 
     const requestRes = useRecoilValue(requestResState);
+    const scheduleLoading = useRecoilValue(scheduleLoadingState);
+    const scheduleChanged = useRecoilValue(scheduleChangedState);
 
     const getChatGPTPlan = async (requestId: number) => {
         setIsLoading(true);
@@ -44,14 +54,30 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
     }, [requestRes]);
 
     useEffect(() => {
-        setIsLoading(false);
-        setChatGPTPlan(schedules);
+        setIsLoadingDetail(true);
+        if (scheduleChanged) {
+            setChatGPTPlan(schedules2);
+            setPicturesSaved(pictures2);
+        } else {
+            setChatGPTPlan(schedules);
+            setPicturesSaved(pictures);
+        }
+        setIsLoading(!scheduleLoading);
+    }, [scheduleLoading, scheduleChanged]);
 
-        chatGPTPlan.map((schedule, index) => {
-            setDay(index + 1);
-            setDayPlan(schedule);
-        });
-    }, []);
+    useEffect(() => {
+        if (!isLoading) {
+            setTimeout(loadingDetail, 3000);
+        }
+    }, [isLoading]);
+
+    useEffect(() => {
+        if (chatGPTPlan.length !== 0) setCity(chatGPTPlan[0].city ?? "");
+    }, [chatGPTPlan]);
+
+    const loadingDetail = () => {
+        setIsLoadingDetail(false);
+    };
 
     const handleScheduleChange = (index: number) => {
         setSelectedScheduleIndex(index);
@@ -61,7 +87,11 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
         <div className="schedule-container">
             <header>Travel Plan</header>
 
-            {!isLoading && chatGPTPlan && (
+            {isLoading ? (
+                <div className="buttons">
+                    <div className="day-button-selected">...</div>
+                </div>
+            ) : (
                 <div className="buttons">
                     {chatGPTPlan.map((schedule, index) => (
                         <div
@@ -80,14 +110,29 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
             )}
 
             {isLoading ? (
-                <div className="options">
-                    <LoadingCard title={"여행 재단중..."} detail={""} />
+                <div>
+                    <div className="options">
+                        <LoadingCard type={0} detail={"여행 재단중..."} />
+                        <LoadingCard type={0} detail={"여행 재단중..."} />
+                        <LoadingCard type={0} detail={"여행 재단중..."} />
+                        <LoadingCard type={0} detail={"여행 재단중..."} />
+                        <LoadingCard type={0} detail={"여행 재단중..."} />
+                    </div>
+                    <div className="options-dir">
+                        <LoadingCard type={1} detail={""} />
+                        <LoadingCard type={1} detail={""} />
+                        <LoadingCard type={1} detail={""} />
+                        <LoadingCard type={1} detail={""} />
+                    </div>
                 </div>
             ) : (
                 <div>
                     <div className="options">
                         <ScheduleCard
-                            index={selectedScheduleIndex}
+                            index={selectedScheduleIndex * 5}
+                            imgSrc={
+                                picturesSaved![selectedScheduleIndex * 5].photo
+                            }
                             data={{
                                 city: chatGPTPlan[selectedScheduleIndex].city,
                                 schedule:
@@ -103,9 +148,14 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
                             isModal={isModal}
                             isRestaurant={false}
                             onClick={onClick}
+                            isLoadingDetail={isLoadingDetail}
                         />
                         <ScheduleCard
-                            index={selectedScheduleIndex}
+                            index={selectedScheduleIndex * 5 + 1}
+                            imgSrc={
+                                picturesSaved![selectedScheduleIndex * 5 + 1]
+                                    .photo
+                            }
                             data={{
                                 city: chatGPTPlan[selectedScheduleIndex].city,
                                 schedule:
@@ -121,9 +171,14 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
                             isModal={isModal}
                             isRestaurant={true}
                             onClick={onClick}
+                            isLoadingDetail={isLoadingDetail}
                         />
                         <ScheduleCard
-                            index={selectedScheduleIndex}
+                            index={selectedScheduleIndex * 5 + 2}
+                            imgSrc={
+                                picturesSaved![selectedScheduleIndex * 5 + 2]
+                                    .photo
+                            }
                             data={{
                                 city: chatGPTPlan[selectedScheduleIndex].city,
                                 schedule:
@@ -139,9 +194,14 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
                             isModal={isModal}
                             isRestaurant={false}
                             onClick={onClick}
+                            isLoadingDetail={isLoadingDetail}
                         />
                         <ScheduleCard
-                            index={selectedScheduleIndex}
+                            index={selectedScheduleIndex * 5 + 3}
+                            imgSrc={
+                                picturesSaved![selectedScheduleIndex * 5 + 3]
+                                    .photo
+                            }
                             data={{
                                 city: chatGPTPlan[selectedScheduleIndex].city,
                                 schedule:
@@ -157,9 +217,14 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
                             isModal={isModal}
                             isRestaurant={true}
                             onClick={onClick}
+                            isLoadingDetail={isLoadingDetail}
                         />
                         <ScheduleCard
-                            index={selectedScheduleIndex}
+                            index={selectedScheduleIndex * 5 + 4}
+                            imgSrc={
+                                picturesSaved![selectedScheduleIndex * 5 + 4]
+                                    .photo
+                            }
                             data={{
                                 city: chatGPTPlan[selectedScheduleIndex].city,
                                 schedule:
@@ -175,10 +240,12 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
                             isModal={isModal}
                             isRestaurant={false}
                             onClick={onClick}
+                            isLoadingDetail={isLoadingDetail}
                         />
                     </div>
                     <div className="options-dir">
                         <DirectionCard
+                            city={city ?? ""}
                             d1={
                                 chatGPTPlan[selectedScheduleIndex]
                                     .travel_destination_1
@@ -188,6 +255,7 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
                             onClick={onClick}
                         />
                         <DirectionCard
+                            city={city ?? ""}
                             d1={chatGPTPlan[selectedScheduleIndex].restaurant_2}
                             d2={
                                 chatGPTPlan[selectedScheduleIndex]
@@ -197,6 +265,7 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
                             onClick={onClick}
                         />
                         <DirectionCard
+                            city={city ?? ""}
                             d1={
                                 chatGPTPlan[selectedScheduleIndex]
                                     .travel_destination_2
@@ -206,6 +275,7 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
                             onClick={onClick}
                         />
                         <DirectionCard
+                            city={city ?? ""}
                             d1={chatGPTPlan[selectedScheduleIndex].restaurant_3}
                             d2={
                                 chatGPTPlan[selectedScheduleIndex]

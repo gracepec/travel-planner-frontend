@@ -5,6 +5,7 @@ import {
     selectedAirTicketState,
     selectedAccommodationState,
     selectedScheduleState,
+    initialLoadingState,
 } from "../../recoils/atoms";
 import "./VisualBox.scss";
 import AirTicketContainer from "./airTicket/AirTicketContainer";
@@ -23,11 +24,13 @@ const VisualBox = () => {
     const selectedAirTicket = useRecoilValue(selectedAirTicketState);
     const selectedAccommodation = useRecoilValue(selectedAccommodationState);
     const selectedSchedule = useRecoilValue(selectedScheduleState);
-    const resetSelectedAirTicket = useResetRecoilState(selectedAirTicketState);
+    const initialLoading = useRecoilValue(initialLoadingState);
+
     const resetSelectedAccommodation = useResetRecoilState(
         selectedAccommodationState
     );
     const resetSelectedSchedule = useResetRecoilState(selectedScheduleState);
+    const resetSelectedAirTicket = useResetRecoilState(selectedAirTicketState);
 
     useEffect(() => {
         if (requestRes?.answerCode === 1) {
@@ -36,7 +39,6 @@ const VisualBox = () => {
     }, [requestRes]);
 
     useEffect(() => {
-        console.log("airTicket has changed: ", selectedAirTicket);
         if (selectedAirTicket === null) return;
         setOptionType(1);
         resetSelectedAccommodation();
@@ -44,7 +46,6 @@ const VisualBox = () => {
     }, [selectedAirTicket, resetSelectedAccommodation, resetSelectedSchedule]);
 
     useEffect(() => {
-        console.log("accommodation has changed: ", selectedAccommodation);
         if (selectedAccommodation === null) return;
         setOptionType(2);
         resetSelectedAirTicket();
@@ -52,7 +53,6 @@ const VisualBox = () => {
     }, [selectedAccommodation, resetSelectedAirTicket, resetSelectedSchedule]);
 
     useEffect(() => {
-        console.log("schedule has changed: ", selectedSchedule);
         if (selectedSchedule === null) return;
         setOptionType(3);
         resetSelectedAirTicket();
@@ -60,8 +60,8 @@ const VisualBox = () => {
     }, [selectedSchedule, resetSelectedAirTicket, resetSelectedAccommodation]);
 
     useEffect(() => {
-        setIsTailing(true);
-    }, []);
+        setIsTailing(initialLoading);
+    }, [initialLoading]);
 
     const openModal = () => {
         setModalOpen(true);
@@ -76,6 +76,10 @@ const VisualBox = () => {
                 <div>
                     <header>Travel to TOKYO</header>
                     <div className="visual-content">
+                        <ScheduleContainer
+                            isModal={modalOpen}
+                            onClick={openModal}
+                        />
                         <AirTicketContainer
                             origin={"인천"}
                             destination={requestRes?.responseCity ?? ""}
@@ -88,10 +92,6 @@ const VisualBox = () => {
                             location={requestRes?.responseCity ?? ""}
                             start_date={requestRes?.responseStartDt ?? ""}
                             end_date={requestRes?.responseEndDt ?? ""}
-                            isModal={modalOpen}
-                            onClick={openModal}
-                        />
-                        <ScheduleContainer
                             isModal={modalOpen}
                             onClick={openModal}
                         />
@@ -114,7 +114,7 @@ const VisualBox = () => {
                     )}
                     {optionType === 3 && (
                         <ScheduleModal
-                            key={`modal-acc-${Date.now()}`}
+                            key={`modal-sch-${Date.now()}`}
                             data={selectedSchedule}
                             open={modalOpen}
                             close={closeModal}

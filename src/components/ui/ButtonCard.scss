@@ -23,7 +23,7 @@
     border-radius: 1rem;
     font-size: 1rem;
     align-content: center;
-    background: #8faadc;
+    background: white;
 }
 
 .card-button .top .title {
@@ -31,7 +31,9 @@
     width: 18rem;
     font-size: 1rem;
     font-weight: bolder;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: font-size 0.5s ease;
 }
 .card-button .detail {

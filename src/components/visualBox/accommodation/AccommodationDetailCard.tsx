@@ -27,7 +27,11 @@ const AccommodationDetailCard = ({ data }: AirTicketDetailCardProps) => {
                 title={"Accommodation Price"}
             ></PriceCard>
 
-            <ButtonCard data={data.url} content={"숙소 예매하기"}></ButtonCard>
+            <ButtonCard
+                data={data.url}
+                content={"숙소 예매하기"}
+                type={0}
+            ></ButtonCard>
         </div>
     );
 };

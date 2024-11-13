@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { requestResState } from "../../../recoils/atoms";
+import {
+    requestResState,
+    accommodationLoadingState,
+} from "../../../recoils/atoms";
 import "./AccommodationContainer.scss";
-import LoadingCard from "../LoadingCard";
+import LoadingCard from "../../ui/LoadingCard";
 import AccommodationCard from "./AccommodationCard";
 import fetchAccommodationData from "../../../apis/fetchAccommodationData";
 import { AccommodationType } from "../../../types/AccommodationType";
@@ -29,10 +32,10 @@ const AccommodationContainer = ({
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     const requestRes = useRecoilValue(requestResState);
+    const accommodationLoading = useRecoilValue(accommodationLoadingState);
 
     const getAccommodationData = async (responseId: number) => {
         setIsLoading(true);
-
         try {
             const result = await fetchAccommodationData({
                 location: location,
@@ -53,27 +56,34 @@ const AccommodationContainer = ({
     }, [requestRes]);
 
     useEffect(() => {
-        setIsLoading(false);
+        setIsLoading(!accommodationLoading);
         setAccommodationData(accommodation);
-    }, []);
+    }, [accommodationLoading]);
 
     return (
         <div className="accommodation-container">
             <header>Accommodation</header>
-            <div className="options">
-                {isLoading ? (
-                    <LoadingCard title={"숙소 재단중..."} detail={""} />
-                ) : (
-                    accommodationData.map((accommodation, index) => (
+            {isLoading ? (
+                <div className="options">
+                    <LoadingCard type={0} detail={"숙소 재단중..."} />
+                    <LoadingCard type={0} detail={"숙소 재단중..."} />
+                    <LoadingCard type={0} detail={"숙소 재단중..."} />
+                    <LoadingCard type={0} detail={"숙소 재단중..."} />
+                    <LoadingCard type={0} detail={"숙소 재단중..."} />
+                </div>
+            ) : (
+                <div className="options">
+                    {" "}
+                    {accommodationData.map((accommodation, index) => (
                         <AccommodationCard
                             key={index}
                             data={accommodation}
                             isModal={isModal}
                             onClick={onClick}
                         />
-                    ))
-                )}
-            </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

@@ -1,3 +1,4 @@
+import React, { useEffect, useRef } from "react";
 import "./MessageContainer.scss";
 
 interface MessageContainerProps {
@@ -8,6 +9,14 @@ interface MessageContainerProps {
 }
 
 const MessageContainer = ({ messages }: MessageContainerProps) => {
+    const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [messages]);
+
     return (
         <div className="messages">
             {messages.map((msg, index) => (
@@ -19,6 +28,7 @@ const MessageContainer = ({ messages }: MessageContainerProps) => {
                     <p>{msg.text}</p>
                 </div>
             ))}
+            <div ref={messagesEndRef} />
         </div>
     );
 };

@@ -6,6 +6,7 @@ import ScheduleAddressBox from "./ScheduleAddressBox";
 import ScheduleInfoBox from "./ScheduleInfoBox";
 import "./ScheduleDetailCard.scss";
 import { PlaceDataType } from "../../../types/PlaceDataType";
+import ScheduleDetailButton from "./ScheduleDetailButton";
 
 interface ScheduleDetailCardProps {
     scheduleData: ScheduleType;
@@ -41,10 +42,17 @@ const ScheduleDetailCard = ({
                 title={"Admission Fee"}
             ></PriceCard>
 
-            <ButtonCard
-                data={placeData.web_site}
-                content={"웹사이트 이동"}
-            ></ButtonCard>
+            <div className="button-container">
+                <ScheduleDetailButton
+                    placeData={placeData}
+                    content={"상세정보 보기"}
+                ></ScheduleDetailButton>
+                <ButtonCard
+                    data={placeData.web_site}
+                    content={"웹사이트 이동"}
+                    type={0}
+                ></ButtonCard>
+            </div>
         </div>
     );
 };

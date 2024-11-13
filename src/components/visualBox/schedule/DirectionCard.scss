@@ -7,51 +7,35 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     // animation: card-immerge 0.5s ease forwards;
     transition: width 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    gap: 0.5rem;
     cursor: pointer;
 }
 .card-dir:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
-}
-
-.card-dir .title {
-    height: 2rem;
-    font-size: 1.5rem;
-    font-family: "NotoSansKR-ExtraBold";
-    text-align: center;
-    transition: font-size 0.5s ease;
-}
-.card-dir .subtitle {
-    height: 2rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-    transition: font-size 0.5s ease;
 }
 .card-dir .detail {
     height: 1rem;
-    font-size: 1rem;
+    margin-left: 1rem;
+    font-size: 0.8rem;
     font-weight: bold;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    transition: margin 0.5s ease;
 }
 .card-dir .image {
     height: 2rem;
     width: 2rem;
+    margin-left: 0.5rem;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.card-dir .image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    transition: margin 0.5s ease;
 }
 
 .card-dir-small {
@@ -66,44 +50,28 @@
 
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     transition: width 0.2s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    gap: 0.5rem;
     cursor: pointer;
 }
 .card-dir-small:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
-}
-
-.card-dir-small .title {
-    height: 2rem;
-    font-size: 1.3rem;
-    font-family: "NotoSansKR-ExtraBold";
-    text-align: center;
-    transition: font-size 0.2s ease;
-}
-.card-dir-small .subtitle {
-    height: 2rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-align: center;
-    transition: font-size 0.2s ease;
 }
 .card-dir-small .detail {
     height: 1rem;
-    font-size: 1rem;
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
     font-weight: bold;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    transition: margin 0.2s ease;
 }
 .card-dir-small .image {
     height: 2rem;
     width: 2rem;
+    margin-left: 0.2rem;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.card-dir-small .image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    transition: margin 0.2s ease;
 }

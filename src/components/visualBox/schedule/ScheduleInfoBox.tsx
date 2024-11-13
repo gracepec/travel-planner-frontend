@@ -12,9 +12,9 @@ const ScheduleInfoBox = ({ scheduleData, placeData }: ScheduleInfoBoxProps) => {
     return (
         <div className="sch-info">
             <div className="top">
-                <div className="title">Opening Hours</div>
+                <div className="title">Details</div>
             </div>
-            <div className="details">오전 5:00~오후 11:00</div>
+            <div className="details">{scheduleData.schedule_detail}</div>
         </div>
     );
 };

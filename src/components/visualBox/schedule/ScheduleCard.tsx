@@ -5,35 +5,45 @@ import { selectedScheduleState } from "../../../recoils/atoms";
 import { ScheduleType } from "../../../types/ScheduleType";
 import { RiRestaurantLine } from "react-icons/ri";
 import { MdCardTravel } from "react-icons/md";
+import LoadingCircle from "../../ui/LoadingCircle";
 
 interface ScheduleCardProps {
     index: number;
+    imgSrc: string;
     data: ScheduleType;
     isModal: boolean;
     isRestaurant: boolean;
     onClick: () => void;
+    isLoadingDetail: boolean;
 }
 
 const ScheduleCard = ({
     index,
+    imgSrc,
     data,
     isModal,
     isRestaurant,
     onClick,
+    isLoadingDetail,
 }: ScheduleCardProps) => {
-    const setSelectedAirTicketState = useSetRecoilState(selectedScheduleState);
+    const setSelectedScheduleState = useSetRecoilState(selectedScheduleState);
 
     const handleClick = () => {
-        setSelectedAirTicketState(data);
+        setSelectedScheduleState(data);
         onClick();
     };
+
     return (
         <div
             className={isModal ? "card-sch-small" : "card-sch"}
             onClick={handleClick}
         >
             <div className="image">
-                <img src="https://placehold.co/600x400" alt="" />
+                {isLoadingDetail ? (
+                    <LoadingCircle />
+                ) : (
+                    <img src={imgSrc} alt="" />
+                )}
             </div>
             <div className="title">{data.schedule}</div>
             <div className="details">{data.schedule_detail}</div>
