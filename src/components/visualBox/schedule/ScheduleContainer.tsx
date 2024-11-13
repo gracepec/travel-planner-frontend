@@ -62,14 +62,19 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
             <header>Travel Plan</header>
 
             {!isLoading && chatGPTPlan && (
-                <div className="schedule-buttons">
+                <div className="buttons">
                     {chatGPTPlan.map((schedule, index) => (
-                        <button
+                        <div
+                            className={
+                                selectedScheduleIndex === index
+                                    ? "day-button-selected"
+                                    : "day-button"
+                            }
                             key={index}
                             onClick={() => handleScheduleChange(index)}
                         >
-                            Day {schedule.day}{" "}
-                        </button>
+                            {schedule.day}
+                        </div>
                     ))}
                 </div>
             )}
@@ -80,7 +85,6 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
                 </div>
             ) : (
                 <div>
-                    <header>{chatGPTPlan[selectedScheduleIndex].day}</header>
                     <div className="options">
                         <ScheduleCard
                             index={selectedScheduleIndex}
