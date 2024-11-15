@@ -37,7 +37,7 @@ const ChatBox = () => {
     const [messages, setMessages] = useState([
         {
             from: "Travel Tailor",
-            text: "안녕하세요! Travel Tailor 입니다. 완벽한 여행을 위해 최선을 다해 도와드리겠습니다. 어느 지역을 언제 여행하고 싶으신가요?\n(ex. 2025년 2월 1일부터 4일까지 도쿄 여행하고 싶어)",
+            text: "안녕하세요! Travel Tailor 입니다. 완벽한 여행을 위해 최선을 다해 도와드리겠습니다. 어느 지역을 언제 여행하고 싶으신가요?",
         },
     ]);
     const [input, setInput] = useState("");
