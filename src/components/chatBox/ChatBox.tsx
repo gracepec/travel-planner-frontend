@@ -27,9 +27,9 @@ const ChatBox = () => {
         accommodationLoadingState
     );
 
+    const requestRes = useRecoilValue(requestResState);
     const selectedDirection = useRecoilValue(selectedDirectionState);
     const selectedPlace = useRecoilValue(selectedPlaceState);
-    const requestRes = useRecoilValue(requestResState);
 
     const resetSelectedDirection = useResetRecoilState(selectedDirectionState);
     const resetSelectedPlace = useResetRecoilState(selectedPlaceState);
@@ -48,87 +48,49 @@ const ChatBox = () => {
 
     useEffect(() => {
         if (requestRes?.answerCode === 1) {
-            printMessage(
-                "Travel Tailor",
-                "여행계획을 작성 해드리겠습니다. 잠시만 기다려 주세요..."
-            );
+            printPlanMessage();
         }
         if (requestRes?.answerCode === 2) {
-            printMessage(
-                "Travel Tailor",
-                "여행계획을 수정 해드리겠습니다. 잠시만 기다려 주세요..."
-            );
+            printChangeMessage();
         }
         if (requestRes?.answerCode === 3 || requestRes?.answerCode === 4) {
             getChatGPTResponseData(requestId);
         }
-    }, [requestRes, requestId]);
+
+        // TODO: answerCode에 따라 응답 처리하기
+    }, [requestRes]);
 
     useEffect(() => {
-        if (selectedPlace) {
-            sendMessage(selectedPlace);
-            const timerId1 = setTimeout(printWaitMessage, 500);
-            const timerId2 = setTimeout(printPlaceMessage, 4000);
-            return () => {
-                clearTimeout(timerId1);
-                clearTimeout(timerId2);
-            };
-        }
+        const timerId1 = setTimeout(printWaitMessage, 500);
+
+        // TODO: 장소 정보 메시지 post 하기
+        sendMessage(selectedPlace);
+
         resetSelectedPlace();
+
+        return () => {
+            clearTimeout(timerId1);
+        };
     }, [selectedPlace]);
 
     useEffect(() => {
-        if (selectedDirection) {
-            sendMessage(selectedDirection);
-            const timerId1 = setTimeout(printWaitMessage, 500);
-            const timerId2 = setTimeout(printDirectionMessage, 4000);
-            return () => {
-                clearTimeout(timerId1);
-                clearTimeout(timerId2);
-            };
-        }
+        const timerId1 = setTimeout(printWaitMessage, 500);
+
+        // TODO: 경로 요청 메시지 post 하기
+        sendMessage(selectedDirection);
+
         resetSelectedDirection();
+
+        return () => {
+            clearTimeout(timerId1);
+        };
     }, [selectedDirection]);
-
-    const removeLastTravelTailorMessage = () => {
-        setMessages(prevMessages => {
-            const lastTravelTailorIndex = [...prevMessages]
-                .reverse()
-                .findIndex(message => message.from === "Travel Tailor");
-
-            if (lastTravelTailorIndex === -1) {
-                return prevMessages;
-            }
-
-            const indexToRemove =
-                prevMessages.length - 1 - lastTravelTailorIndex;
-
-            return [
-                ...prevMessages.slice(0, indexToRemove),
-                ...prevMessages.slice(indexToRemove + 1),
-            ];
-        });
-    };
-
-    const printWaitMessage = () => {
-        printMessage(
-            "Travel Tailor",
-            "응답을 생성하는 중입니다. 잠시만 기다려주세요..."
-        );
-    };
-    const printDirectionMessage = () => {
-        removeLastTravelTailorMessage();
-        printMessage(
-            "Travel Tailor",
-            "몬자야키 다루마에서 우에노 공원까지의 경로는 도쿄의 대중교통을 통해 쉽게 갈 수 있습니다. 가장 빠른 방법은 JR 전철을 타는 것입니다. 근처의 JR 선 정거장에서 야마노테 선을 타고, 우에노역에서 내리시면 됩니다. 총 소요 시간은 약 30분 정도입니다."
-        );
-    };
 
     useEffect(() => {
         if (chatGPTResponseData)
             printMessage(
                 "Travel Tailor",
-                chatGPTResponseData?.response ??
+                chatGPTResponseData.response ??
                     "오류가 발생했습니다. 다시 시도 해주세요."
             );
     }, [chatGPTResponseData]);
@@ -170,60 +132,92 @@ const ChatBox = () => {
     const sendMessage = (message: string) => {
         if (message.trim()) {
             printMessage("You", message);
-            // postRequest(message);
+            postRequest(message);
 
-            if (message === "2025년 2월 1일부터 4일까지 도쿄 여행하고 싶어") {
-                const timerId1 = setTimeout(printWaitMessage, 500);
-                const timerId2 = setTimeout(printPlanMessage, 4000);
-                const timerId3 = setTimeout(printCompleteMessage, 10000);
-                const timerId4 = setTimeout(scheduleLoadingComplete, 10000);
-                const timerId5 = setTimeout(airTicketLoadingComplete, 12000);
-                const timerId6 = setTimeout(
-                    accommodationLoadingComplete,
-                    14000
-                );
-                return () => {
-                    clearTimeout(timerId1);
-                    clearTimeout(timerId2);
-                    clearTimeout(timerId3);
-                    clearTimeout(timerId4);
-                    clearTimeout(timerId5);
-                    clearTimeout(timerId6);
-                };
-            }
-            if (message === "도쿄 우에노 공원에 대해서 알려줘") {
-                const timerId1 = setTimeout(printWaitMessage, 500);
-                const timerId2 = setTimeout(printPlaceMessage, 4000);
-                return () => {
-                    clearTimeout(timerId1);
-                    clearTimeout(timerId2);
-                };
-            }
-            if (message === "아우어즈 인 한큐에 대해서 알려줘") {
-                const timerId1 = setTimeout(printWaitMessage, 500);
-                const timerId2 = setTimeout(printAccommodationMessage, 4000);
-                return () => {
-                    clearTimeout(timerId1);
-                    clearTimeout(timerId2);
-                };
-            }
-            if (message === "아사쿠사 대신 도쿄 국립박물관을 추가해줘") {
-                const timerId1 = setTimeout(printWaitMessage, 500);
-                const timerId2 = setTimeout(printChangeMessage, 4000);
-                const timerId3 = setTimeout(scheduleStartLoading, 4000);
-                const timerId4 = setTimeout(printChangeCompleteMessage, 9000);
-                const timerId5 = setTimeout(scheduleLoadingComplete, 9000);
-                return () => {
-                    clearTimeout(timerId1);
-                    clearTimeout(timerId2);
-                    clearTimeout(timerId3);
-                    clearTimeout(timerId4);
-                    clearTimeout(timerId5);
-                };
-            }
+            const timerId1 = setTimeout(printWaitMessage, 500);
+
+            return () => {
+                clearTimeout(timerId1);
+            };
+
+            // if (message === "2025년 2월 1일부터 4일까지 도쿄 여행하고 싶어") {
+            //     const timerId1 = setTimeout(printWaitMessage, 500);
+            //     const timerId2 = setTimeout(printPlanMessage, 4000);
+            //     const timerId3 = setTimeout(printCompleteMessage, 10000);
+            //     const timerId4 = setTimeout(scheduleLoadingComplete, 10000);
+            //     const timerId5 = setTimeout(airTicketLoadingComplete, 12000);
+            //     const timerId6 = setTimeout(
+            //         accommodationLoadingComplete,
+            //         14000
+            //     );
+            //     return () => {
+            //         clearTimeout(timerId1);
+            //         clearTimeout(timerId2);
+            //         clearTimeout(timerId3);
+            //         clearTimeout(timerId4);
+            //         clearTimeout(timerId5);
+            //         clearTimeout(timerId6);
+            //     };
+            // }
+            // if (message === "도쿄 우에노 공원에 대해서 알려줘") {
+            //     const timerId1 = setTimeout(printWaitMessage, 500);
+            //     const timerId2 = setTimeout(printPlaceMessage, 4000);
+            //     return () => {
+            //         clearTimeout(timerId1);
+            //         clearTimeout(timerId2);
+            //     };
+            // }
+            // if (message === "아우어즈 인 한큐에 대해서 알려줘") {
+            //     const timerId1 = setTimeout(printWaitMessage, 500);
+            //     const timerId2 = setTimeout(printAccommodationMessage, 4000);
+            //     return () => {
+            //         clearTimeout(timerId1);
+            //         clearTimeout(timerId2);
+            //     };
+            // }
+            // if (message === "아사쿠사 대신 도쿄 국립박물관을 추가해줘") {
+            //     const timerId1 = setTimeout(printWaitMessage, 500);
+            //     const timerId2 = setTimeout(printChangeMessage, 4000);
+            //     const timerId3 = setTimeout(scheduleStartLoading, 4000);
+            //     const timerId4 = setTimeout(printChangeCompleteMessage, 9000);
+            //     const timerId5 = setTimeout(scheduleLoadingComplete, 9000);
+            //     return () => {
+            //         clearTimeout(timerId1);
+            //         clearTimeout(timerId2);
+            //         clearTimeout(timerId3);
+            //         clearTimeout(timerId4);
+            //         clearTimeout(timerId5);
+            //     };
+            // }
         }
     };
 
+    const removeLastTravelTailorMessage = () => {
+        setMessages(prevMessages => {
+            const lastTravelTailorIndex = [...prevMessages]
+                .reverse()
+                .findIndex(message => message.from === "Travel Tailor");
+
+            if (lastTravelTailorIndex === -1) {
+                return prevMessages;
+            }
+
+            const indexToRemove =
+                prevMessages.length - 1 - lastTravelTailorIndex;
+
+            return [
+                ...prevMessages.slice(0, indexToRemove),
+                ...prevMessages.slice(indexToRemove + 1),
+            ];
+        });
+    };
+
+    const printWaitMessage = () => {
+        printMessage(
+            "Travel Tailor",
+            "응답을 생성하는 중입니다. 잠시만 기다려주세요..."
+        );
+    };
     const printPlanMessage = () => {
         removeLastTravelTailorMessage();
         printMessage(
@@ -249,7 +243,7 @@ const ChatBox = () => {
     };
     const printChangeCompleteMessage = () => {
         removeLastTravelTailorMessage();
-        printMessage("Travel Tailor", "도쿄 여행 계획을 수정해드렸습니다.");
+        printMessage("Travel Tailor", "여행 계획을 수정해드렸습니다.");
     };
     const printPlaceMessage = () => {
         removeLastTravelTailorMessage();
@@ -263,6 +257,13 @@ const ChatBox = () => {
         printMessage(
             "Travel Tailor",
             "도쿄 아우어즈 인 한큐는 도쿄에 위치한 호텔로서 편리한 교통과 다양한 시설을 제공합니다. 근처에 쇼핑센터와 관광 명소가 있어 좋은 위치에 있으며, 객실은 현대적이고 깔끔하게 꾸며져 있습니다. 고객 서비스가 우수하다는 평이 많습니다."
+        );
+    };
+    const printDirectionMessage = () => {
+        removeLastTravelTailorMessage();
+        printMessage(
+            "Travel Tailor",
+            "몬자야키 다루마에서 우에노 공원까지의 경로는 도쿄의 대중교통을 통해 쉽게 갈 수 있습니다. 가장 빠른 방법은 JR 전철을 타는 것입니다. 근처의 JR 선 정거장에서 야마노테 선을 타고, 우에노역에서 내리시면 됩니다. 총 소요 시간은 약 30분 정도입니다."
         );
     };
 
