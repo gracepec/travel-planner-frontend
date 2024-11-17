@@ -63,7 +63,7 @@ const AirTicketDetailCard = ({ data }: AirTicketDetailCardProps) => {
                 ></ConfirmButton>
                 <ButtonCard
                     data={data.url}
-                    content={"티켓 구매하기"}
+                    content={"구매 링크 이동하기"}
                     type={0}
                 ></ButtonCard>
             </div>

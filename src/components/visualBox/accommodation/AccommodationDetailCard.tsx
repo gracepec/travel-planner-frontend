@@ -36,7 +36,7 @@ const AccommodationDetailCard = ({ data }: AccommodationDetailCardProps) => {
                 ></AccommodationConfirmButton>
                 <ButtonCard
                     data={data.url}
-                    content={"숙소 예매하기"}
+                    content={"예약 링크 이동하기"}
                     type={0}
                 ></ButtonCard>
             </div>

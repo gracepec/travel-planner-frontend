@@ -50,7 +50,8 @@ const AccommodationContainer = ({
     };
 
     useEffect(() => {
-        if (requestRes?.answerCode === 1) {
+        if (!requestRes) return;
+        if (requestRes.answerCode === 1) {
             getAccommodationData(requestRes.requestId);
         }
     }, [requestRes]);

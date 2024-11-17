@@ -4,9 +4,15 @@ import { FlightType } from "../types/FlightType";
 import { AccommodationType } from "../types/AccommodationType";
 import { ScheduleType } from "../types/ScheduleType";
 import { PlaceDataType } from "../types/PlaceDataType";
+import { ChatGPTPlanType } from "../types/ChatGPTPlanType";
 
 export const requestResState = atom<ChatGPTRequestType | null>({
     key: "requestRes",
+    default: null,
+});
+
+export const chatGPTPlanState = atom<ChatGPTPlanType[] | null>({
+    key: "chatGPTPlan",
     default: null,
 });
 
@@ -78,4 +84,9 @@ export const confirmedAirTicketState = atom<FlightType | null>({
 export const confirmedAccommodationState = atom<AccommodationType | null>({
     key: "confirmedAccommodation",
     default: null,
+});
+
+export const confirmTravelPlanState = atom<boolean>({
+    key: "confirmTravelPlan",
+    default: false,
 });

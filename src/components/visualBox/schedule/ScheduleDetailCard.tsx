@@ -20,9 +20,6 @@ const ScheduleDetailCard = ({
     scheduleData,
     placeData,
 }: ScheduleDetailCardProps) => {
-    console.log("placeData: ", placeData);
-    if (!Array.isArray(placeData.photo)) {
-    }
     return (
         <div className="detail-sch">
             {isLoading ? (

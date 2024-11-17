@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import {
     requestResState,
     scheduleLoadingState,
     scheduleChangedState,
+    chatGPTPlanState,
 } from "../../../recoils/atoms";
 import LoadingCard from "../../ui/LoadingCard";
 import ScheduleCard from "./ScheduleCard";
@@ -39,6 +40,8 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
     const scheduleLoading = useRecoilValue(scheduleLoadingState);
     const scheduleChanged = useRecoilValue(scheduleChangedState);
 
+    const setChatGPTPlanState = useSetRecoilState(chatGPTPlanState);
+
     const getChatGPTPlan = async (requestId: number) => {
         setIsLoading(true);
 
@@ -47,6 +50,7 @@ const ScheduleContainer = ({ isModal, onClick }: ScheduleContainerProps) => {
                 requestId: requestId.toString(),
             });
             setChatGPTPlan(result);
+            setChatGPTPlanState(result);
             setIsLoading(false);
         } catch (error) {
             console.log(error);

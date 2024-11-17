@@ -37,7 +37,7 @@ const ChatBox = () => {
     const [messages, setMessages] = useState([
         {
             from: "Travel Tailor",
-            text: "안녕하세요! Travel Tailor 입니다. 완벽한 여행을 위해 최선을 다해 도와드리겠습니다. 어느 지역을 언제 여행하고 싶으신가요?",
+            text: "안녕하세요! Travel Tailor 입니다. 완벽한 여행을 위해 최선을 다해 도와드리겠습니다. 어느 도시를 언제 여행하고 싶으신가요?",
         },
     ]);
     const [input, setInput] = useState("");
@@ -230,7 +230,7 @@ const ChatBox = () => {
         removeLastTravelTailorMessage();
         printMessage(
             "Travel Tailor",
-            "여행계획을 작성 해드리겠습니다. 잠시만 기다려 주세요..."
+            "여행계획을 작성 해드리겠습니다. 로딩 후에 확인해주세요."
         );
         setInitialLoadingState(true);
     };
@@ -245,7 +245,7 @@ const ChatBox = () => {
         removeLastTravelTailorMessage();
         printMessage(
             "Travel Tailor",
-            "여행계획을 수정 해드리겠습니다. 잠시만 기다려 주세요..."
+            "여행계획을 수정 해드리겠습니다. 로딩 후에 확인해주세요."
         );
         setInitialLoadingState(true);
     };

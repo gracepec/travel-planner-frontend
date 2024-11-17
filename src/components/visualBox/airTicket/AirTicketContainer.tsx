@@ -48,7 +48,8 @@ const AirTicketContainer = ({
     };
 
     useEffect(() => {
-        if (requestRes?.answerCode === 1) {
+        if (!requestRes) return;
+        if (requestRes.answerCode === 1) {
             getFlightData(requestRes.requestId);
         }
     }, [requestRes]);

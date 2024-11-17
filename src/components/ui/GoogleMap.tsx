@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { AdvancedMarker, Map, Pin } from "@vis.gl/react-google-maps";
 
 interface GoogleMapProps {
@@ -16,11 +16,16 @@ const GoogleMap = ({ lat, lng }: GoogleMapProps) => {
             location: { lat: lat, lng: lng + 0.0027 },
         },
     ];
+
     return (
         <div id="map" style={{ width: "100%", height: "100vh" }}>
             <Map
                 defaultZoom={16}
                 defaultCenter={{
+                    lat: locations[0].location.lat,
+                    lng: locations[0].location.lng,
+                }}
+                center={{
                     lat: locations[0].location.lat,
                     lng: locations[0].location.lng,
                 }}
