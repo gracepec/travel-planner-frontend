@@ -1,0 +1,151 @@
+.roadmap-container {
+    width: 63rem;
+    height: 4rem;
+    // width: fit-content;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    box-sizing: border-box;
+    transition: width 0.5s ease;
+}
+
+.line {
+    width: 100%;
+    border: 0.5rem solid gray;
+    border-radius: 1rem;
+    position: absolute;
+    z-index: 1;
+}
+
+.line-white {
+    width: 100%;
+    margin: 0.5rem;
+    border: 0.1rem solid white;
+    border-radius: 1rem;
+    position: absolute;
+    z-index: 2;
+}
+
+.roadmap-container .roadmap-button-container {
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+
+    position: absolute;
+    z-index: 3;
+    transition: padding 0.5s ease;
+}
+
+.roadmap-container .place-button {
+    height: 3rem;
+    width: 3rem;
+    margin: 0 2.9rem 0 2.9rem;
+    font-size: 2rem;
+    border: 1px solid lightgray;
+    border-radius: 2rem;
+    background-color: white;
+    transition: background-color 0.3s ease;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // cursor: pointer;
+    transition: margin 0.5s ease;
+}
+
+.roadmap-container-small {
+    width: 50rem;
+    height: 4rem;
+    // width: fit-content;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    box-sizing: border-box;
+    transition: width 0.2s ease;
+}
+
+.roadmap-container-small .roadmap-button-container {
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+
+    position: absolute;
+    z-index: 3;
+    transition: padding 0.2s ease;
+}
+
+.roadmap-container-small .place-button {
+    height: 3rem;
+    width: 3rem;
+    margin: 0 1.6rem 0 1.6rem;
+    font-size: 2rem;
+    border: 1px solid lightgray;
+    border-radius: 2rem;
+    background-color: white;
+    transition: background-color 0.3s ease;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // cursor: pointer;
+    transition: margin 0.2s ease;
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    border-radius: 1.5rem;
+}
+
+.icon-button {
+    height: 2rem;
+    width: 2rem;
+    font-size: 1.5rem;
+    border: 1px solid lightgray;
+    border-radius: 1.5rem;
+    background-color: white;
+    transition: background-color 0.3s ease;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.icon-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: darkgray;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}

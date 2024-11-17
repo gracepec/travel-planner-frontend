@@ -4,7 +4,10 @@ import ScheduleDetailCard from "./ScheduleDetailCard";
 import ScheduleDetailModalCard from "./ScheduleDetailModalCard";
 import { ScheduleType } from "../../../types/ScheduleType";
 import { PlaceDataType } from "../../../types/PlaceDataType";
-import { detailPlaceState } from "../../../recoils/atoms";
+import {
+    selectedScheduleState,
+    detailPlaceState,
+} from "../../../recoils/atoms";
 import { ImCross } from "react-icons/im";
 import fetchPlaceData from "../../../apis/fetchPlaceData";
 import "./ScheduleModal.scss";
@@ -17,6 +20,7 @@ interface ModalProps {
 }
 
 const ScheduleModal = ({ data, open, close }: ModalProps) => {
+    const selectedSchedule = useRecoilValue(selectedScheduleState);
     const detailPlace = useRecoilValue(detailPlaceState);
     const resetDetailPlace = useResetRecoilState(detailPlaceState);
 
@@ -26,11 +30,13 @@ const ScheduleModal = ({ data, open, close }: ModalProps) => {
         name: "-",
         photo: [],
         address: "-",
+        latitude: "0.0",
+        longitude: "0.0",
         opening_hours: [],
         admission_provider: "-",
         admission_fee: "-",
         admission_url: "-",
-        web_site: "-W",
+        web_site: "-",
     });
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -48,22 +54,24 @@ const ScheduleModal = ({ data, open, close }: ModalProps) => {
         }
     };
 
-    // useEffect(() => {
-    //     getPlaceData(data?.schedule + " " + data?.city);
-    // }, [data]);
+    useEffect(() => {
+        if (!data) return;
+        getPlaceData(data.schedule_local);
+    }, [data]);
 
     useEffect(() => {
         if (detailPlace) {
             const timer = setTimeout(() => setDelayedDetailPlace(true), 200);
-            return () => clearTimeout(timer); // Cleanup
+            return () => clearTimeout(timer);
         } else {
-            setDelayedDetailPlace(false); // Reset immediately if detailPlace is false
+            setDelayedDetailPlace(false);
         }
     }, [detailPlace]);
 
-    useEffect(() => {
-        setPlaceData(place_data);
-    }, []);
+    // useEffect(() => {
+    //     if (!data) return;
+    //     setPlaceData(data.placeData);
+    // }, [data]);
 
     const handleClick = () => {
         resetDetailPlace();
@@ -75,6 +83,7 @@ const ScheduleModal = ({ data, open, close }: ModalProps) => {
     return (
         <div className={detailPlace ? "modal-sch-detail" : "modal-sch"}>
             <ScheduleDetailCard
+                isLoading={isLoading}
                 scheduleData={data}
                 placeData={placeData}
             ></ScheduleDetailCard>

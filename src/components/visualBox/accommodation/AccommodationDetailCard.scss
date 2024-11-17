@@ -39,3 +39,10 @@
     height: 100%;
     object-fit: cover;
 }
+
+.detail-acc .button-container {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    gap: 1rem;
+}

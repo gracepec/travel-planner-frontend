@@ -7,6 +7,18 @@
 
     gap: 0.5rem;
 }
+.detail-sch .image-loading {
+    width: 25rem;
+    height: 21rem;
+    position: relative;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    z-index: 5;
+}
 .detail-sch .image {
     width: 25rem;
     height: 21rem;
@@ -16,12 +28,16 @@
     grid-template-rows: 1fr 1fr;
     overflow: hidden;
     border-radius: 0.5rem 0.5rem 0rem 0rem;
-    transition: width 0.5s ease;
+    background-color: white;
+    z-index: 5;
 }
 .detail-sch .image img {
-    width: 100%;
-    height: 100%;
+    width: 12.5rem;
+    height: 10.5rem;
     object-fit: cover;
+    object-position: center;
+    grid-column: span 1;
+    grid-row: span 1;
 }
 .detail-sch .title {
     height: 5rem;

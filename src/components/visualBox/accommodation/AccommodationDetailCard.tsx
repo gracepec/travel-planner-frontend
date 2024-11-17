@@ -5,12 +5,13 @@ import PriceCard from "../../ui/PriceCard";
 import AccommodationAddress from "./AccommodationAddress";
 import "./AccommodationDetailCard.scss";
 import AccommodationRate from "./AccommodationRate";
+import AccommodationConfirmButton from "./AccommodationConfirmButton";
 
-interface AirTicketDetailCardProps {
+interface AccommodationDetailCardProps {
     data: AccommodationType;
 }
 
-const AccommodationDetailCard = ({ data }: AirTicketDetailCardProps) => {
+const AccommodationDetailCard = ({ data }: AccommodationDetailCardProps) => {
     return (
         <div className="detail-acc">
             <div className="image">
@@ -27,11 +28,18 @@ const AccommodationDetailCard = ({ data }: AirTicketDetailCardProps) => {
                 title={"Accommodation Price"}
             ></PriceCard>
 
-            <ButtonCard
-                data={data.url}
-                content={"숙소 예매하기"}
-                type={0}
-            ></ButtonCard>
+            <div className="button-container">
+                <AccommodationConfirmButton
+                    isLoading={false}
+                    accommodationData={data}
+                    content={"상세정보 보기"}
+                ></AccommodationConfirmButton>
+                <ButtonCard
+                    data={data.url}
+                    content={"숙소 예매하기"}
+                    type={0}
+                ></ButtonCard>
+            </div>
         </div>
     );
 };

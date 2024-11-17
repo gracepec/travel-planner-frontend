@@ -47,20 +47,27 @@ const ChatBox = () => {
         useState<ChatGPTResponseType>();
 
     useEffect(() => {
-        if (requestRes?.answerCode === 1) {
+        if (!requestRes) return;
+        if (requestRes.answerCode === 1) {
             printPlanMessage();
         }
-        if (requestRes?.answerCode === 2) {
+        if (requestRes.answerCode === 2) {
             printChangeMessage();
         }
-        if (requestRes?.answerCode === 3 || requestRes?.answerCode === 4) {
-            getChatGPTResponseData(requestId);
+        if (
+            requestRes.answerCode === 3 ||
+            requestRes.answerCode === 4 ||
+            requestRes.answerCode === 5
+        ) {
+            removeLastTravelTailorMessage();
+            printMessage("Travel Tailor", requestRes.responseContent);
         }
 
         // TODO: answerCode에 따라 응답 처리하기
     }, [requestRes]);
 
     useEffect(() => {
+        if (!selectedPlace) return;
         const timerId1 = setTimeout(printWaitMessage, 500);
 
         // TODO: 장소 정보 메시지 post 하기
@@ -74,6 +81,7 @@ const ChatBox = () => {
     }, [selectedPlace]);
 
     useEffect(() => {
+        if (!selectedDirection) return;
         const timerId1 = setTimeout(printWaitMessage, 500);
 
         // TODO: 경로 요청 메시지 post 하기
@@ -140,7 +148,7 @@ const ChatBox = () => {
                 clearTimeout(timerId1);
             };
 
-            // if (message === "2025년 2월 1일부터 4일까지 도쿄 여행하고 싶어") {
+            // if (message === "2025년 2월 1일부터 2월 4일까지 도쿄 여행하고 싶어") {
             //     const timerId1 = setTimeout(printWaitMessage, 500);
             //     const timerId2 = setTimeout(printPlanMessage, 4000);
             //     const timerId3 = setTimeout(printCompleteMessage, 10000);

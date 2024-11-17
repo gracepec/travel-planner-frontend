@@ -7,24 +7,37 @@ import ScheduleInfoBox from "./ScheduleInfoBox";
 import "./ScheduleDetailCard.scss";
 import { PlaceDataType } from "../../../types/PlaceDataType";
 import ScheduleDetailButton from "./ScheduleDetailButton";
+import LoadingCircle from "../../ui/LoadingCircle";
 
 interface ScheduleDetailCardProps {
+    isLoading: boolean;
     scheduleData: ScheduleType;
     placeData: PlaceDataType;
 }
 
 const ScheduleDetailCard = ({
+    isLoading,
     scheduleData,
     placeData,
 }: ScheduleDetailCardProps) => {
+    console.log("placeData: ", placeData);
+    if (!Array.isArray(placeData.photo)) {
+    }
     return (
         <div className="detail-sch">
-            <div className="image">
-                <img src={placeData.photo[0]} alt={"1"} />
-                <img src={placeData.photo[1]} alt={"2"} />
-                <img src={placeData.photo[2]} alt={"3"} />
-                <img src={placeData.photo[3]} alt={"4"} />
-            </div>
+            {isLoading ? (
+                <div className="image-loading">
+                    <LoadingCircle />
+                </div>
+            ) : placeData.photo[0] === "-" ? (
+                <div className="image-loading">로딩에 실패하였습니다.</div>
+            ) : (
+                <div className="image">
+                    {placeData.photo.map((photoUrl, index) => (
+                        <img key={index} src={photoUrl} alt={`${index + 1}`} />
+                    ))}
+                </div>
+            )}
             <div className="title">{placeData.name}</div>
 
             <ScheduleAddressBox
@@ -44,6 +57,7 @@ const ScheduleDetailCard = ({
 
             <div className="button-container">
                 <ScheduleDetailButton
+                    isLoading={isLoading}
                     placeData={placeData}
                     content={"상세정보 보기"}
                 ></ScheduleDetailButton>

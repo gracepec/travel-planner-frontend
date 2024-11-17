@@ -22,7 +22,10 @@ const ScheduleDetailModalCard = ({
     return (
         <div className="detail-sch-mod">
             <div className="image">
-                <GoogleMap />
+                <GoogleMap
+                    lat={Number(placeData.latitude)}
+                    lng={Number(placeData.longitude)}
+                />
             </div>
 
             <ScheduleTimeBox

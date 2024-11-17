@@ -6,6 +6,7 @@ import AirTicketDeparture from "./AirTicketDeparture";
 import AirTicketReturn from "./AirTicketReturn";
 import PriceCard from "../../ui/PriceCard";
 import ButtonCard from "../../ui/ButtonCard";
+import ConfirmButton from "./AirTicketConfirmButton";
 import "./AirTicketDetailCard.scss";
 
 interface AirTicketDetailCardProps {
@@ -54,11 +55,18 @@ const AirTicketDetailCard = ({ data }: AirTicketDetailCardProps) => {
                 title={"AirLine Ticket Price"}
             ></PriceCard>
 
-            <ButtonCard
-                data={data.url}
-                content={"티켓 구매하기"}
-                type={0}
-            ></ButtonCard>
+            <div className="button-container">
+                <ConfirmButton
+                    isLoading={isLoading}
+                    flightData={data}
+                    content={"상세정보 보기"}
+                ></ConfirmButton>
+                <ButtonCard
+                    data={data.url}
+                    content={"티켓 구매하기"}
+                    type={0}
+                ></ButtonCard>
+            </div>
         </div>
     );
 };

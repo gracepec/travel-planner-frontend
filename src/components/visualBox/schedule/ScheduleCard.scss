@@ -1,5 +1,5 @@
 .card-sch {
-    height: 14rem;
+    height: 6rem;
     width: 11rem;
     padding: 0rem 0.5rem 1rem 0.5rem;
     background: white;
@@ -20,11 +20,13 @@
 
 .card-sch .title {
     height: 2rem;
-    margin: 0.5rem 0 0.5rem 0;
-    font-size: 1rem;
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
     font-family: "NotoSansKR-ExtraBold";
-    text-align: center;
     transition: font-size 0.5s ease;
+
+    display: flex;
+    align-items: center;
 }
 .card-sch .details {
     height: 3rem;
@@ -57,7 +59,7 @@
 }
 
 .card-sch-small {
-    height: 14rem;
+    height: 6rem;
     width: 8.5rem;
     padding: 0rem 0.5rem 0.5rem 0.5rem;
     background: white;
@@ -91,10 +93,11 @@
     transition: opacity 0.1s ease 0.4s;
 }
 .card-sch-small .details-icon {
-    height: 3rem;
+    height: 4rem;
     font-size: 2rem;
-    text-align: center;
     transition: opacity 0.1s ease 0s;
+    display: flex;
+    align-items: center;
 }
 .card-sch-small .image {
     height: 8rem;

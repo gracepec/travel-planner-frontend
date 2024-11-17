@@ -69,3 +69,13 @@ export const scheduleChangedState = atom<boolean>({
     key: "scheduleChanged",
     default: false,
 });
+
+export const confirmedAirTicketState = atom<FlightType | null>({
+    key: "confirmedAirTicket",
+    default: null,
+});
+
+export const confirmedAccommodationState = atom<AccommodationType | null>({
+    key: "confirmedAccommodation",
+    default: null,
+});

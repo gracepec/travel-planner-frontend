@@ -7,11 +7,13 @@ import { FaMinus } from "react-icons/fa";
 import "./ScheduleDetailButton.scss";
 
 interface ScheduleDetailButtonProps {
+    isLoading: boolean;
     placeData: PlaceDataType;
     content: string;
 }
 
 const ScheduleDetailButton = ({
+    isLoading,
     placeData,
     content,
 }: ScheduleDetailButtonProps) => {
@@ -19,6 +21,7 @@ const ScheduleDetailButton = ({
     const detailPlace = useRecoilValue(detailPlaceState);
 
     const handleClick = () => {
+        if (isLoading) return;
         setDetailPlace(prevState => !prevState);
     };
 
