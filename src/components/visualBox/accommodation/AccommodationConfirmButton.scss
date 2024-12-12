@@ -1,0 +1,42 @@
+.confirm-button-air {
+    height: 3rem;
+    width: 3rem;
+    margin: 0.5rem 0 0 0;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    background-color: transparent;
+}
+.confirm-button-air:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.confirm-button-air .top {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 1.5rem;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: font-size 0.5s ease;
+    background: white;
+}
+
+.confirm-button-air .top-confirmed {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 1.5rem;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: font-size 0.5s ease;
+    background: green;
+}

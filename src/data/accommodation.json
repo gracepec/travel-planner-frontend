@@ -1,44 +1,42 @@
-{
-    "accommodation": [
-        {
-            "photo": "https://cf.bstatic.com/xdata/images/hotel/square600/4199588.webp?k=d9ef90976d9ed158ccc3a8e8035d1a79ace92d701d596a81383bd67059933e1d&o=",
-            "name": "메트로 플라자 호텔(Metro Plaza Hotel)",
-            "location": "다운타운, 로스앤젤레스",
-            "rate": "7.1",
-            "price": "₩1,426,599",
-            "url": "https://www.booking.com/hotel/us/metro-plaza.ko.html?label=gen173nr-1BCAEoggI46AdIM1gEaH2IAQGYARe4AQfIAQzYAQHoAQGIAgGoAgO4Aoq3pbgGwAIB0gIkODk0ZjY1MWQtOGZiNi00OGJiLWE2NTYtZTI1YWM3YWU0Mzk02AIF4AIB&sid=44bd047c8d43f39ec412f9e92d5e45f7&aid=304142&ucfs=1&arphpl=1&checkin=2025-03-01&checkout=2025-03-10&dest_id=20014181&dest_type=city&group_adults=1&req_adults=1&no_rooms=1&group_children=0&req_children=0&hpos=4&hapos=4&sr_order=popularity&srpvid=30b1788918e3055b&srepoch=1728666519&all_sr_blocks=5637601_345285450_2_0_0&highlighted_blocks=5637601_345285450_2_0_0&matching_block_id=5637601_345285450_2_0_0&sr_pri_blocks=5637601_345285450_2_0_0__105651&from=searchresults"
-        },
-        {
-            "photo": "https://cf.bstatic.com/xdata/images/hotel/square600/198601772.webp?k=8d5cf8f6604eea2b562913e51326dda8e2fb9d7abba397aabfaf4e140ad6cba3&o=",
-            "name": "미야코 호텔 로스앤젤레스(Miyako Hotel Los Angeles)",
-            "location": "다운타운, 로스앤젤레스",
-            "rate": "8.6",
-            "price": "₩2,377,868",
-            "url": "https://www.booking.com/hotel/us/miyako-los-angeles.ko.html?label=gen173nr-1BCAEoggI46AdIM1gEaH2IAQGYARe4AQfIAQzYAQHoAQGIAgGoAgO4Aoq3pbgGwAIB0gIkODk0ZjY1MWQtOGZiNi00OGJiLWE2NTYtZTI1YWM3YWU0Mzk02AIF4AIB&sid=44bd047c8d43f39ec412f9e92d5e45f7&aid=304142&ucfs=1&arphpl=1&checkin=2025-03-01&checkout=2025-03-10&dest_id=20014181&dest_type=city&group_adults=1&req_adults=1&no_rooms=1&group_children=0&req_children=0&hpos=5&hapos=5&sr_order=popularity&srpvid=30b1788918e3055b&srepoch=1728666519&all_sr_blocks=5931701_338000752_2_0_0&highlighted_blocks=5931701_338000752_2_0_0&matching_block_id=5931701_338000752_2_0_0&sr_pri_blocks=5931701_338000752_2_0_0__176100&from=searchresults"
-        },
-        {
-            "photo": "https://cf.bstatic.com/xdata/images/hotel/square600/76761252.webp?k=6397f90de26b16a0cfe887bb2ccf145fd5bd847e51d04ec3364afc8810cd7991&o=",
-            "name": "HI 로스앤젤레스 - 산타 모니카 호스텔(HI Los Angeles - Santa Monica Hostel)",
-            "location": "산타모니카, 로스앤젤레스",
-            "rate": "8.6",
-            "price": "₩509,061",
-            "url": "https://www.booking.com/hotel/us/hostelling-international.ko.html?label=gen173nr-1BCAEoggI46AdIM1gEaH2IAQGYARe4AQfIAQzYAQHoAQGIAgGoAgO4Aoq3pbgGwAIB0gIkODk0ZjY1MWQtOGZiNi00OGJiLWE2NTYtZTI1YWM3YWU0Mzk02AIF4AIB&sid=44bd047c8d43f39ec412f9e92d5e45f7&aid=304142&ucfs=1&arphpl=1&checkin=2025-03-01&checkout=2025-03-10&dest_id=20014181&dest_type=city&group_adults=1&req_adults=1&no_rooms=1&group_children=0&req_children=0&hpos=8&hapos=8&sr_order=popularity&srpvid=30b1788918e3055b&srepoch=1728666519&all_sr_blocks=5669023_131695509_0_1_0&highlighted_blocks=5669023_131695509_0_1_0&matching_block_id=5669023_131695509_0_1_0&sr_pri_blocks=5669023_131695509_0_1_0__37700&from_sustainable_property_sr=1&from=searchresults"
-        },
-        {
-            "photo": "https://cf.bstatic.com/xdata/images/hotel/square600/399173136.webp?k=be299f06c9cee7812f74879c73ec0064bbf361a8628a08584794c017ca29d898&o=",
-            "name": "Hollywood Business Suites",
-            "location": "할리우드, 로스앤젤레스",
-            "rate": "8.1",
-            "price": "₩1,395,272",
-            "url": "https://www.booking.com/hotel/us/hollywood-business-suites-los-angeles.ko.html?label=gen173nr-1BCAEoggI46AdIM1gEaH2IAQGYARe4AQfIAQzYAQHoAQGIAgGoAgO4Aoq3pbgGwAIB0gIkODk0ZjY1MWQtOGZiNi00OGJiLWE2NTYtZTI1YWM3YWU0Mzk02AIF4AIB&sid=44bd047c8d43f39ec412f9e92d5e45f7&aid=304142&ucfs=1&arphpl=1&checkin=2025-03-01&checkout=2025-03-10&dest_id=20014181&dest_type=city&group_adults=1&req_adults=1&no_rooms=1&group_children=0&req_children=0&hpos=10&hapos=10&sr_order=popularity&srpvid=30b1788918e3055b&srepoch=1728666519&all_sr_blocks=899022301_360609687_2_0_0&highlighted_blocks=899022301_360609687_2_0_0&matching_block_id=899022301_360609687_2_0_0&sr_pri_blocks=899022301_360609687_2_0_0__103331&from=searchresults"
-        },
-        {
-            "photo": "https://cf.bstatic.com/xdata/images/hotel/square600/574135782.webp?k=11a509bd40ef9e179e6ee3ce2fb91921e6ada88993412bf1ac9adad31e382f4b&o=",
-            "name": "Tranquility at the House of Alchemy Hollywood",
-            "location": "할리우드, 로스앤젤레스",
-            "rate": "9.3",
-            "price": "₩1,650,019",
-            "url": "https://www.booking.com/hotel/us/house-of-alchemy-hollywood.ko.html?label=gen173nr-1BCAEoggI46AdIM1gEaH2IAQGYARe4AQfIAQzYAQHoAQGIAgGoAgO4Aoq3pbgGwAIB0gIkODk0ZjY1MWQtOGZiNi00OGJiLWE2NTYtZTI1YWM3YWU0Mzk02AIF4AIB&sid=44bd047c8d43f39ec412f9e92d5e45f7&aid=304142&ucfs=1&arphpl=1&checkin=2025-03-01&checkout=2025-03-10&dest_id=20014181&dest_type=city&group_adults=1&req_adults=1&no_rooms=1&group_children=0&req_children=0&hpos=11&hapos=11&sr_order=popularity&srpvid=30b1788918e3055b&srepoch=1728666519&all_sr_blocks=1071986502_380665397_1_0_0_148507&highlighted_blocks=1071986502_380665397_1_0_0_148507&matching_block_id=1071986502_380665397_1_0_0_148507&sr_pri_blocks=1071986502_380665397_1_0_0_148507_122197&from_sustainable_property_sr=1&from=searchresults"
-        }
-    ]
-}
+[
+    {
+        "photo": "https://cf.bstatic.com/xdata/images/hotel/square240/412908461.webp?k=b82709e838feabede9edc6869ac36e47feb83ea3c158c0c258e8f44391653144&o=",
+        "name": "아우어즈 인 한큐(Ours Inn Hankyu)",
+        "location": "시나가와 구, 도쿄",
+        "rate": "8.0",
+        "price": "₩273,158",
+        "url": "https://www.booking.com/hotel/jp/awazuinban-ji.ko.html?label=gen173nr-1BCAEoggI46AdIM1gEaH2IAQGYARe4ARfIAQzYAQHoAQGIAgGoAgO4AqqczbkGwAIB0gIkZmM5ZWZkNjEtMjJjNS00ZWI3LTk2ZDYtNWZmNmFiOTZhZDFl2AIF4AIB&sid=a1097159fc56803845d1501a8a0c6182&aid=304142&ucfs=1&arphpl=1&checkin=2025-01-01&checkout=2025-01-05&dest_id=-246227&dest_type=city&group_adults=1&req_adults=1&no_rooms=1&group_children=0&req_children=0&hpos=6&hapos=6&sr_order=popularity&srpvid=440759d8e39d06f0&srepoch=1731415611&all_sr_blocks=269429621_167294390_0_2_0&highlighted_blocks=269429621_167294390_0_2_0&matching_block_id=269429621_167294390_0_2_0&sr_pri_blocks=269429621_167294390_0_2_0__3013920&from_sustainable_property_sr=1&from=searchresults"
+    },
+    {
+        "photo": "https://cf.bstatic.com/xdata/images/hotel/square240/47972975.webp?k=23dcdbc6255e1d39f2a5d13182f46ee46cb102ac1fd45b0668cdddb00d479da4&o=",
+        "name": "그랜드 센트럴 호텔 (Grand Central Hotel)",
+        "location": "치요다, 도쿄",
+        "rate": "7.6",
+        "price": "₩317,683",
+        "url": "https://www.booking.com/hotel/jp/grand-central.ko.html?label=gen173nr-1BCAEoggI46AdIM1gEaH2IAQGYARe4ARfIAQzYAQHoAQGIAgGoAgO4AqqczbkGwAIB0gIkZmM5ZWZkNjEtMjJjNS00ZWI3LTk2ZDYtNWZmNmFiOTZhZDFl2AIF4AIB&sid=a1097159fc56803845d1501a8a0c6182&aid=304142&ucfs=1&arphpl=1&checkin=2025-01-01&checkout=2025-01-05&dest_id=-246227&dest_type=city&group_adults=1&req_adults=1&no_rooms=1&group_children=0&req_children=0&hpos=7&hapos=7&sr_order=popularity&srpvid=440759d8e39d06f0&srepoch=1731415611&all_sr_blocks=139118905_380762245_0_2_0&highlighted_blocks=139118905_380762245_0_2_0&matching_block_id=139118905_380762245_0_2_0&sr_pri_blocks=139118905_380762245_0_2_0__3505200&from=searchresults"
+    },
+    {
+        "photo": "https://cf.bstatic.com/xdata/images/hotel/square240/366162265.webp?k=9f006de4f4982e220fa967cc13bec72796ba0af5210e6dc91b9cc620961b16b0&o=",
+        "name": "주요 호텔(Juyoh Hotel)",
+        "location": "타이토, 도쿄",
+        "rate": "8.0",
+        "price": "₩170,098",
+        "url": "https://www.booking.com/hotel/jp/juyoh.ko.html?label=gen173nr-1BCAEoggI46AdIM1gEaH2IAQGYARe4ARfIAQzYAQHoAQGIAgGoAgO4AqqczbkGwAIB0gIkZmM5ZWZkNjEtMjJjNS00ZWI3LTk2ZDYtNWZmNmFiOTZhZDFl2AIF4AIB&sid=a1097159fc56803845d1501a8a0c6182&aid=304142&ucfs=1&arphpl=1&checkin=2025-01-01&checkout=2025-01-05&dest_id=-246227&dest_type=city&group_adults=1&req_adults=1&no_rooms=1&group_children=0&req_children=0&hpos=8&hapos=8&sr_order=popularity&srpvid=440759d8e39d06f0&srepoch=1731415611&all_sr_blocks=32062607_370963117_0_0_0&highlighted_blocks=32062607_370963117_0_0_0&matching_block_id=32062607_370963117_0_0_0&sr_pri_blocks=32062607_370963117_0_0_0__1876800&from=searchresults"
+    },
+    {
+        "photo": "https://cf.bstatic.com/xdata/images/hotel/square240/153958926.webp?k=34ac473e75facc483355ca9fb106d436523442d4d47ab32ccab110a2eb441149&o=",
+        "name": "벨켄 호텔 칸다(Belken Hotel Kanda)",
+        "location": "치요다, 도쿄",
+        "rate": "8.8",
+        "price": "₩424,579",
+        "url": "https://www.booking.com/hotel/jp/belken-kanda.ko.html?label=gen173nr-1BCAEoggI46AdIM1gEaH2IAQGYARe4ARfIAQzYAQHoAQGIAgGoAgO4AqqczbkGwAIB0gIkZmM5ZWZkNjEtMjJjNS00ZWI3LTk2ZDYtNWZmNmFiOTZhZDFl2AIF4AIB&sid=a1097159fc56803845d1501a8a0c6182&aid=304142&ucfs=1&arphpl=1&checkin=2025-01-01&checkout=2025-01-05&dest_id=-246227&dest_type=city&group_adults=1&req_adults=1&no_rooms=1&group_children=0&req_children=0&hpos=10&hapos=10&sr_order=popularity&srpvid=440759d8e39d06f0&srepoch=1731415611&all_sr_blocks=339338701_195374909_0_0_0&highlighted_blocks=339338701_195374909_0_0_0&matching_block_id=339338701_195374909_0_0_0&sr_pri_blocks=339338701_195374909_0_0_0__4684640&from_sustainable_property_sr=1&from=searchresults"
+    },
+    {
+        "photo": "https://cf.bstatic.com/xdata/images/hotel/square240/137865193.webp?k=50eb374847decb5352e77e8dd6aad8e6137fe944b3b4a6bcae9dcefb07604fb2&o=",
+        "name": "호텔 에미트 우에노(Hotel Emit Ueno)",
+        "location": "타이토, 도쿄",
+        "rate": "7.9",
+        "price": "₩393,561",
+        "url": "https://www.booking.com/hotel/jp/emit-ueno.ko.html?label=gen173nr-1BCAEoggI46AdIM1gEaH2IAQGYARe4ARfIAQzYAQHoAQGIAgGoAgO4AqqczbkGwAIB0gIkZmM5ZWZkNjEtMjJjNS00ZWI3LTk2ZDYtNWZmNmFiOTZhZDFl2AIF4AIB&sid=a1097159fc56803845d1501a8a0c6182&aid=304142&ucfs=1&arphpl=1&checkin=2025-01-01&checkout=2025-01-05&dest_id=-246227&dest_type=city&group_adults=1&req_adults=1&no_rooms=1&group_children=0&req_children=0&hpos=12&hapos=12&sr_order=popularity&srpvid=440759d8e39d06f0&srepoch=1731415611&all_sr_blocks=298727101_373757437_0_2_0&highlighted_blocks=298727101_373757437_0_2_0&matching_block_id=298727101_373757437_0_2_0&sr_pri_blocks=298727101_373757437_0_2_0__4342400&from=searchresults"
+    }
+]

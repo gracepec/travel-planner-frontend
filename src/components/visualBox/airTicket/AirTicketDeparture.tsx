@@ -1,3 +1,4 @@
+import React from "react";
 import { FlightType } from "../../../types/FlightType";
 import "./AirTicketDeparture.scss";
 

@@ -1,0 +1,42 @@
+.sch-info {
+    height: 5rem;
+    width: 23rem;
+    background: white;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.sch-info .top {
+    height: 2rem;
+    width: 23rem;
+    border-radius: 1rem 1rem 0rem 0rem;
+    font-size: 1rem;
+    align-items: start;
+    background: #ff9944;
+}
+
+.sch-info .top .title {
+    height: 2rem;
+    width: 23rem;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-align: center;
+}
+.sch-info .details {
+    height: 1rem;
+    font-size: 0.8rem;
+    margin: 1rem;
+    font-weight: bold;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

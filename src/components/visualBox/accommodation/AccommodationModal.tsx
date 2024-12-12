@@ -1,3 +1,4 @@
+import React from "react";
 import AccommodationDetailCard from "./AccommodationDetailCard";
 import { AccommodationType } from "../../../types/AccommodationType";
 import { ImCross } from "react-icons/im";
@@ -13,7 +14,7 @@ const AccommodationModal = ({ data, open, close }: ModalProps) => {
     if (!open || !data) return null;
 
     return (
-        <div className="modal">
+        <div className="modal-acc">
             <AccommodationDetailCard data={data}></AccommodationDetailCard>
             <button className="button" onClick={close}>
                 <ImCross />

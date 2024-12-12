@@ -1,0 +1,56 @@
+.detail-sch {
+    width: 23rem;
+    padding: 0rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0.5rem;
+}
+.detail-sch .image-loading {
+    width: 25rem;
+    height: 21rem;
+    position: relative;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    z-index: 5;
+}
+.detail-sch .image {
+    width: 25rem;
+    height: 21rem;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    overflow: hidden;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+    background-color: white;
+    z-index: 5;
+}
+.detail-sch .image img {
+    width: 12.5rem;
+    height: 10.5rem;
+    object-fit: cover;
+    object-position: center;
+    grid-column: span 1;
+    grid-row: span 1;
+}
+.detail-sch .title {
+    height: 5rem;
+    width: 24rem;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    text-align: center;
+    align-content: center;
+    transition: font-size 0.5s ease;
+}
+.detail-sch .button-container {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    gap: 1rem;
+}

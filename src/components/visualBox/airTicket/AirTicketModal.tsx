@@ -1,3 +1,4 @@
+import React from "react";
 import AirTicketDetailCard from "./AirTicketDetailCard";
 import { FlightType } from "../../../types/FlightType";
 import { ImCross } from "react-icons/im";
@@ -13,7 +14,7 @@ const AirTicketModal = ({ data, open, close }: ModalProps) => {
     if (!open || !data) return null;
 
     return (
-        <div className="modal">
+        <div className="modal-air">
             <AirTicketDetailCard data={data}></AirTicketDetailCard>
             <button className="button" onClick={close}>
                 <ImCross />

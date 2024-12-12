@@ -1,6 +1,6 @@
 .card-button {
     height: 3rem;
-    width: 20rem;
+    width: 18rem;
     background: white;
     margin: 0.5rem 0 0 0;
     border-radius: 1rem;
@@ -19,19 +19,21 @@
 
 .card-button .top {
     height: 3rem;
-    width: 20rem;
+    width: 18rem;
     border-radius: 1rem;
     font-size: 1rem;
     align-content: center;
-    background: #8faadc;
+    background: white;
 }
 
 .card-button .top .title {
     height: 2rem;
-    width: 20rem;
+    width: 18rem;
     font-size: 1rem;
     font-weight: bolder;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: font-size 0.5s ease;
 }
 .card-button .detail {

@@ -1,4 +1,4 @@
-.modal {
+.modal-acc {
     position: absolute;
     top: 6.5rem;
     right: 2rem;
@@ -7,13 +7,13 @@
     display: flex;
     flex-direction: column;
 
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     background-color: white;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     animation: slide-enter 0.5s ease forwards;
 }
 
-.modal .button {
+.modal-acc .button {
     position: absolute;
     top: 5px;
     left: 3px;
@@ -24,6 +24,9 @@
     border: 0;
     background-color: transparent;
     cursor: pointer;
+}
+.modal-acc .button:hover {
+    color: red;
 }
 
 /* 모달이 처음 등장할 때의 애니메이션 */

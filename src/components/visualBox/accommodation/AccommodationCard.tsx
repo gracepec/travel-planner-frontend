@@ -1,3 +1,4 @@
+import React from "react";
 import { useSetRecoilState } from "recoil";
 import { selectedAccommodationState } from "../../../recoils/atoms";
 import { AccommodationType } from "../../../types/AccommodationType";

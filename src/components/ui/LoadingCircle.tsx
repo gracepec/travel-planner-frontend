@@ -1,3 +1,4 @@
+import React from "react";
 import "./LoadingCircle.css";
 
 const LoadingCircle = () => {

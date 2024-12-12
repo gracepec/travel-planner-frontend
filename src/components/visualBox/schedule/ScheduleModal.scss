@@ -1,0 +1,80 @@
+.modal-sch {
+    position: absolute;
+    top: 6.5rem;
+    right: 2rem;
+    height: 52rem;
+    width: 25rem;
+    display: flex;
+    flex-direction: row;
+
+    border-radius: 0.5rem;
+    // background: linear-gradient(to bottom, #cce9ff, #f2f2f2);
+    background-color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    animation: slide-enter 0.5s ease forwards;
+}
+.modal-sch-detail {
+    position: absolute;
+    top: 6.5rem;
+    right: 2rem;
+    height: 52rem;
+    width: 50.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+
+    border-radius: 0.5rem;
+    // background: linear-gradient(to bottom, #cce9ff, #f2f2f2);
+    background-color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: width 0.2s ease;
+}
+
+.modal-sch .button {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    font-size: 1rem;
+    z-index: 5;
+
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+.modal-sch .button:hover {
+    color: red;
+}
+.modal-sch-detail .button {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    font-size: 1rem;
+    z-index: 6;
+
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+.modal-sch-detail .button:hover {
+    color: red;
+}
+
+/* 모달이 처음 등장할 때의 애니메이션 */
+@keyframes slide-enter {
+    0% {
+        transform: translateX(1rem);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(-1rem);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

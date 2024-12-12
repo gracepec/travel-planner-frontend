@@ -1,19 +1,28 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { requestResState } from "../../../recoils/atoms";
+import {
+    requestResState,
+    accommodationLoadingState,
+} from "../../../recoils/atoms";
 import "./AccommodationContainer.scss";
-import LoadingCard from "../LoadingCard";
+import LoadingCard from "../../ui/LoadingCard";
 import AccommodationCard from "./AccommodationCard";
 import fetchAccommodationData from "../../../apis/fetchAccommodationData";
 import { AccommodationType } from "../../../types/AccommodationType";
 import accommodation from "../../../data/accommodation.json";
 
 interface AccommodationContainerProps {
+    location: string;
+    start_date: string;
+    end_date: string;
     isModal: boolean;
     onClick: () => void;
 }
 
 const AccommodationContainer = ({
+    location,
+    start_date,
+    end_date,
     isModal,
     onClick,
 }: AccommodationContainerProps) => {
@@ -23,14 +32,10 @@ const AccommodationContainer = ({
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     const requestRes = useRecoilValue(requestResState);
+    const accommodationLoading = useRecoilValue(accommodationLoadingState);
 
     const getAccommodationData = async (responseId: number) => {
         setIsLoading(true);
-
-        const location = "도쿄";
-        const start_date = "2024-11-15";
-        const end_date = "2024-11-20";
-
         try {
             const result = await fetchAccommodationData({
                 location: location,
@@ -45,33 +50,41 @@ const AccommodationContainer = ({
     };
 
     useEffect(() => {
-        if (requestRes?.answerCode === 1) {
+        if (!requestRes) return;
+        if (requestRes.answerCode === 1) {
             getAccommodationData(requestRes.requestId);
         }
     }, [requestRes]);
 
     useEffect(() => {
-        setIsLoading(false);
-        setAccommodationData(accommodation.accommodation);
-    }, []);
+        setIsLoading(!accommodationLoading);
+        setAccommodationData(accommodation);
+    }, [accommodationLoading]);
 
     return (
         <div className="accommodation-container">
             <header>Accommodation</header>
-            <div className="options">
-                {isLoading ? (
-                    <LoadingCard title={"숙소 재단중..."} detail={""} />
-                ) : (
-                    accommodationData.map((accommodation, index) => (
+            {isLoading ? (
+                <div className="options">
+                    <LoadingCard type={0} detail={"숙소 재단중..."} />
+                    <LoadingCard type={0} detail={"숙소 재단중..."} />
+                    <LoadingCard type={0} detail={"숙소 재단중..."} />
+                    <LoadingCard type={0} detail={"숙소 재단중..."} />
+                    <LoadingCard type={0} detail={"숙소 재단중..."} />
+                </div>
+            ) : (
+                <div className="options">
+                    {" "}
+                    {accommodationData.map((accommodation, index) => (
                         <AccommodationCard
                             key={index}
                             data={accommodation}
                             isModal={isModal}
                             onClick={onClick}
                         />
-                    ))
-                )}
-            </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

@@ -1,7 +1,7 @@
 .card-sch {
-    height: 8rem;
-    width: 14rem;
-    padding: 1rem;
+    height: 7rem;
+    width: 11rem;
+    padding: 0rem 0.5rem 1rem 0.5rem;
     background: white;
     border-radius: 1rem;
     display: flex;
@@ -11,7 +11,6 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     // animation: card-immerge 0.5s ease forwards;
     transition: width 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    gap: 0.5rem;
     cursor: pointer;
 }
 .card-sch:hover {
@@ -21,31 +20,37 @@
 
 .card-sch .title {
     height: 2rem;
-    font-size: 1.5rem;
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
     font-family: "NotoSansKR-ExtraBold";
-    text-align: center;
     transition: font-size 0.5s ease;
+
+    display: flex;
+    align-items: center;
 }
-.card-sch .subtitle {
-    height: 2rem;
-    font-size: 1.2rem;
-    font-weight: bold;
+.card-sch .details {
+    height: 3rem;
+    font-size: 0.8rem;
     text-align: center;
-    transition: font-size 0.5s ease;
+    transition: opacity 0.2s ease 0.3s;
 }
-.card-sch .detail {
-    height: 1rem;
-    font-size: 1rem;
-    font-weight: bold;
+.card-sch .details-icon {
+    height: 0rem;
+    font-size: 0rem;
     text-align: center;
+    opacity: 0;
+    transition: opacity 0.2s ease 0s;
 }
 .card-sch .image {
-    height: 3rem;
-    width: 3rem;
+    height: 8rem;
+    width: 12rem;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    border-radius: 1rem 1rem 0rem 0rem;
+    transition: width 0.5s ease;
 }
 .card-sch .image img {
     width: 100%;
@@ -54,9 +59,9 @@
 }
 
 .card-sch-small {
-    height: 8rem;
-    width: 11rem;
-    padding: 1rem;
+    height: 7rem;
+    width: 8.5rem;
+    padding: 0rem 0.5rem 1rem 0.5rem;
     background: white;
     border-radius: 1rem;
     display: flex;
@@ -65,7 +70,6 @@
 
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     transition: width 0.2s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    gap: 0.5rem;
     cursor: pointer;
 }
 .card-sch-small:hover {
@@ -75,34 +79,51 @@
 
 .card-sch-small .title {
     height: 2rem;
-    font-size: 1.3rem;
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
     font-family: "NotoSansKR-ExtraBold";
     text-align: center;
     transition: font-size 0.2s ease;
 }
-.card-sch-small .subtitle {
-    height: 2rem;
-    font-size: 1.1rem;
-    font-weight: bold;
+.card-sch-small .details {
+    height: 0rem;
+    font-size: 0rem;
     text-align: center;
-    transition: font-size 0.2s ease;
+    opacity: 0;
+    transition: opacity 0.1s ease 0.4s;
 }
-.card-sch-small .detail {
-    height: 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: center;
+.card-sch-small .details-icon {
+    height: 4rem;
+    font-size: 2rem;
+    transition: opacity 0.1s ease 0s;
+    display: flex;
+    align-items: center;
 }
 .card-sch-small .image {
-    height: 3rem;
-    width: 3rem;
+    height: 8rem;
+    width: 9.5rem;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    border-radius: 1rem 1rem 0rem 0rem;
+    transition: width 0.2s ease;
 }
 .card-sch-small .image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+@keyframes opacity-fade {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
